@@ -132,8 +132,9 @@ public class CustomItemData {
         private CustomItemSoundData(String itemId) {
             FileConfiguration config = LifeStealZ.getInstance().getConfigManager().getCustomItemConfig();
             enabled = config.getBoolean(itemId + ".sound.enabled");
-            NamespacedKey soundKey = NamespacedKey.fromString(config.getString(itemId + ".sound.sound"));
-            sound = Registry.SOUNDS.get(soundKey);
+            String soundKey = config.getString(itemId + ".sound.sound");
+            soundKey = soundKey.replace("_", ".").toLowerCase();
+            sound = Registry.SOUNDS.get(NamespacedKey.fromString(soundKey));
             volume = config.getDouble(itemId + ".sound.volume");
             pitch = config.getDouble(itemId + ".sound.pitch");
         }
