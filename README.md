@@ -1,3 +1,5 @@
+# This is a fork of LifeStealZ built for SpigotMC servers.  I'll try to keep it updated with future spigot and LifeStealZ updates
+
 ![LifeStealZ Banner](https://file.strassburger.dev/LifeStealZ_banner_new_2.png)
 
 ---
