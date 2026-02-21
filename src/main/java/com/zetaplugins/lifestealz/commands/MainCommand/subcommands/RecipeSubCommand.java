@@ -42,7 +42,7 @@ public final class RecipeSubCommand implements SubCommand {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "recipeNotCraftable",
-                    "&cThis item is not craftable!"
+                    "<red>This item is not craftable!"
             ));
             return false;
         }

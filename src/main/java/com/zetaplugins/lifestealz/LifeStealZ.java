@@ -239,7 +239,7 @@ public final class LifeStealZ extends ZetaCorePlugin {
 
     private void initializeBStats() {
         int pluginId = 18735;
-        Metrics metrics = createBStatsMetrics(pluginId);
+        Metrics metrics = new Metrics(this, pluginId);
 
         metrics.addCustomChart(new Metrics.SimplePie("storage_type", () -> getConfigManager().getStorageConfig().getString("type")));
         metrics.addCustomChart(new Metrics.SimplePie("language", () -> getConfig().getString("lang")));

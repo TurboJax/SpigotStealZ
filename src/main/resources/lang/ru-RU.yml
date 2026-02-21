@@ -1,87 +1,87 @@
 ---
-prefix: "&8[&cLifeStealZ&8]"
+prefix: "<dark_gray>[<red>LifeStealZ<dark_gray>]"
 newVersionAvailable: |-
-  &7Доступна новая версия LifeStealZ!
-  &c<click:OPEN_URL:https://modrinth.com/plugin/lifestealz/versions>https://modrinth.com/plugin/lifestealz/versions</click>
-usageError: "&cИспользованик: %usage%"
+  <gray>Доступна новая версия LifeStealZ!
+  <red><click:OPEN_URL:https://modrinth.com/plugin/lifestealz/versions>https://modrinth.com/plugin/lifestealz/versions</click>
+usageError: "<red>Использованик: %usage%"
 noPermsError: "<red>У вас недостаточно прав!"
-needToBePlayer: "&cВам необходимо быть игроком для выполнения команды!"
-playerNotFound: "&cИгрок не найден!"
-worldNotWhitelisted: "&cЭтот мир не в белом списке LifeStealZ!"
-specifyPlayerOrBePlayer: "&cВам необходимо указать никнейм игрока, или самому быть
+needToBePlayer: "<red>Вам необходимо быть игроком для выполнения команды!"
+playerNotFound: "<red>Игрок не найден!"
+worldNotWhitelisted: "<red>Этот мир не в белом списке LifeStealZ!"
+specifyPlayerOrBePlayer: "<red>Вам необходимо указать никнейм игрока, или самому быть
   игроком!"
-noPermissionError: "&cУ вас недостаточно прав для использования предмета!"
-noPlayerData: "&cДанный игрок ни разу не заходил на сервер!"
-eliminateSuccess: "&7Вы успешно уничтожили &c%player%&7!"
-reviveSuccess: "&7Вы успешно возродили &c%player%!"
-massReviveSuccess: "&7Вы успешно возродили &c%amount% &7игроков!"
-massReviveError: "&cВозникла ошибка при воскрешении игроков: %error%"
-reviveMaxReached: "&cИгрок уже был возрождён %amount% раз!"
-onlyReviveElimPlayers: "&cВы можете возродить только уничтоженных игроков!"
-reviveBossbarTitle: "&cВозрождение &target& &7&l| &r&3&осталосьH&:&remainingM&:&remainingS&
-  осталось &7&l| &r&6X: &locationX& Y: &locationY& Z: &locationZ&"
-eliminatedJoin: "&cУ вас не осталось сердец!"
-eliminationAnnouncement: "&c%player% &7был уничтожен игроком &c%killer%&7!"
-eliminateionAnnouncementNature: "&c%player% &7был уничтожен!"
-setHeartsConfirmSingle: "&7Количество сердец для &c%player% &7теперь &c%amount%"
-setHeartsConfirmMultiple: "&7Количество сердец для &c%pamount% игроков &7теперь &c%amount%"
-addHeartsConfirmSingle: "&7Успешно добавлено &c%amount% &7сердец для &c%player%"
-addHeartsConfirmMultiple: "&7Успешно добавлено &c%amount% &7сердец для &c%pamount%
+noPermissionError: "<red>У вас недостаточно прав для использования предмета!"
+noPlayerData: "<red>Данный игрок ни разу не заходил на сервер!"
+eliminateSuccess: "<gray>Вы успешно уничтожили <red>%player%<gray>!"
+reviveSuccess: "<gray>Вы успешно возродили <red>%player%!"
+massReviveSuccess: "<gray>Вы успешно возродили <red>%amount% <gray>игроков!"
+massReviveError: "<red>Возникла ошибка при воскрешении игроков: %error%"
+reviveMaxReached: "<red>Игрок уже был возрождён %amount% раз!"
+onlyReviveElimPlayers: "<red>Вы можете возродить только уничтоженных игроков!"
+reviveBossbarTitle: "<red>Возрождение &target& <gray><b>| <reset><dark_aqua>&осталосьH&:&remainingM&:&remainingS&
+  осталось <gray><b>| <reset><gold>X: <b>ocationX& Y: <b>ocationY& Z: <b>ocationZ&"
+eliminatedJoin: "<red>У вас не осталось сердец!"
+eliminationAnnouncement: "<red>%player% <gray>был уничтожен игроком <red>%killer%<gray>!"
+eliminateionAnnouncementNature: "<red>%player% <gray>был уничтожен!"
+setHeartsConfirmSingle: "<gray>Количество сердец для <red>%player% <gray>теперь <red>%amount%"
+setHeartsConfirmMultiple: "<gray>Количество сердец для <red>%pamount% игроков <gray>теперь <red>%amount%"
+addHeartsConfirmSingle: "<gray>Успешно добавлено <red>%amount% <gray>сердец для <red>%player%"
+addHeartsConfirmMultiple: "<gray>Успешно добавлено <red>%amount% <gray>сердец для <red>%pamount%
   игроков"
-removeHeartsConfirmSingle: "&7Успешно удалено &c%amount% &7сердец для &c%player%"
-removeHeartsConfirmMultiple: "&7Успешно удалено &c%amount% &7сердец для &c%pamount%
+removeHeartsConfirmSingle: "<gray>Успешно удалено <red>%amount% <gray>сердец для <red>%player%"
+removeHeartsConfirmMultiple: "<gray>Успешно удалено <red>%amount% <gray>сердец для <red>%pamount%
   игроков"
-connotSetHeartsBelowOrToZero: "&cВы не можете установить количество сердец ниже или
+connotSetHeartsBelowOrToZero: "<red>Вы не можете установить количество сердец ниже или
   равное 0!"
-getHearts: "&c%player% &7в данный момент имеет &c%amount% &7сердец!"
-reloadMsg: "&7Плагин успешно переустановлен!"
-versionMsg: "&7Вы используете версию <red>%version%"
+getHearts: "<red>%player% <gray>в данный момент имеет <red>%amount% <gray>сердец!"
+reloadMsg: "<gray>Плагин успешно переустановлен!"
+versionMsg: "<gray>Вы используете версию <red>%version%"
 newVersionMsg: |2
 
-  &c<b><grey>></grey> LifeStealZ</b> <grey>v%version%</grey>
+  <red><b><grey>></grey> LifeStealZ</b> <grey>v%version%</grey>
 
-  &c <u><click:open_url:'https://wiki.lifestealz.com/'>Документация</click></u>  &c<u><click:open_url:'https://strassburger.org/discord'>Discord поддержки</click></u>
-noWithdraw: "&cВы будете уничтожены, если потеряете сердце!"
-withdrawConfirmmsg: "&8&oИспользуйте <underlined><click:SUGGEST_COMMAND:/withdrawheart
+  <red> <u><click:open_url:'https://wiki.lifestealz.com/'>Документация</click></u>  <red><u><click:open_url:'https://strassburger.org/discord'>Discord поддержки</click></u>
+noWithdraw: "<red>Вы будете уничтожены, если потеряете сердце!"
+withdrawConfirmmsg: "<dark_gray><i>Используйте <underlined><click:SUGGEST_COMMAND:/withdrawheart
   %amount% confirm>/withdrawheart %amount% confirm</click></underlined> если вы действительно
   хотите потерять сердце!"
-maxHeartLimitReached: "&cВы уже достигли лимита в %limit% сердец!"
-closeBtn: "&cЗакрыть"
-backBtn: "&cНазад"
-nextBtn: "&cДалее"
-reviveTitle: "&8Возродить игрока"
-revivePlayerDesc: "&7Нажмите для возрождения игрока"
-viewheartsYou: "&7Вы имеете &c%amount% &7сердец!"
-viewheartsOther: "&c%player% &7имеет &c%amount% &7сердец!"
-heartconsume: "&7Вы получили &c%amount% &7сердец!"
-heartconsumeCooldown: "&cВы должны подождать перед использованием следующего сердца!"
-recipeNotCraftable: "&cЭтот предмет нельзя создать!"
-recipeNotFound: "&cДанного рецепта не существует!"
-altKill: "&cПожалуйста, не пытайтесь убивать твинки! Эта попытка была записана!"
-withdrawMin: "&cВы не можете забрать менее 1 сердца!"
-noInventorySpace: "&cУ вас недостаточно места в инвентаре, чтобы получить такое количество
+maxHeartLimitReached: "<red>Вы уже достигли лимита в %limit% сердец!"
+closeBtn: "<red>Закрыть"
+backBtn: "<red>Назад"
+nextBtn: "<red>Далее"
+reviveTitle: "<dark_gray>Возродить игрока"
+revivePlayerDesc: "<gray>Нажмите для возрождения игрока"
+viewheartsYou: "<gray>Вы имеете <red>%amount% <gray>сердец!"
+viewheartsOther: "<red>%player% <gray>имеет <red>%amount% <gray>сердец!"
+heartconsume: "<gray>Вы получили <red>%amount% <gray>сердец!"
+heartconsumeCooldown: "<red>Вы должны подождать перед использованием следующего сердца!"
+recipeNotCraftable: "<red>Этот предмет нельзя создать!"
+recipeNotFound: "<red>Данного рецепта не существует!"
+altKill: "<red>Пожалуйста, не пытайтесь убивать твинки! Эта попытка была записана!"
+withdrawMin: "<red>Вы не можете забрать менее 1 сердца!"
+noInventorySpace: "<red>У вас недостаточно места в инвентаре, чтобы получить такое количество
   сердец!"
-giveItem: "&7Вы получили %amount%x &c%item%&7!"
-heartGainCooldown: "&cВам необходимо подождать перед использованием сердца!"
-exportData: "&7Данные игрока успешно экспортированы в &c%file%.csv"
-exportDataError: "&cНе удалось экспортировать данные! Проверьте консоль."
-exportingData: "&7Экспорт данных игрока..."
+giveItem: "<gray>Вы получили %amount%x <red>%item%<gray>!"
+heartGainCooldown: "<red>Вам необходимо подождать перед использованием сердца!"
+exportData: "<gray>Данные игрока успешно экспортированы в <red>%file%.csv"
+exportDataError: "<red>Не удалось экспортировать данные! Проверьте консоль."
+exportingData: "<gray>Экспорт данных игрока..."
 importData: |-
-  &7Успешно импортирован файл &c%file%.csv&7!
-  &cПожалуйста, перезапустите сервер, чтобы обеспечить лучшую миграцию!
-importDataError: "&cНе удалось импортировать данные! Проверьте консоль."
-importingData: "&7Импорт данных игрока..."
+  <gray>Успешно импортирован файл <red>%file%.csv<gray>!
+  <red>Пожалуйста, перезапустите сервер, чтобы обеспечить лучшую миграцию!
+importDataError: "<red>Не удалось импортировать данные! Проверьте консоль."
+importingData: "<gray>Импорт данных игрока..."
 unwhitelistedWorld: |2
 
   <red><b><grey>></grey> Белый список мира</b></red>
 
-  <gray>Вы играете в мире <red><click:COPY_TO_CLIPBOARD:'&world&'><hover:show_text:'&7Копировать'>&world&</hover></click></red>.
+  <gray>Вы играете в мире <red><click:COPY_TO_CLIPBOARD:'&world&'><hover:show_text:'<gray>Копировать'>&world&</hover></click></red>.
   Этот мир не в белом списке. LSZ невозможно использовать здесь.</gray>
 
   <red><u><click:open_url:'https://lsz.strassburger.dev/configuration/whitelist'>Документация</click></u></red>   <red><u><click:open_url:'https://strassburger.org/discord'>Сервер поддержки</click></u></red>   <u><hover:show_text:'<gray>Для игнорирования: установите 'supressWhitelistMessage' значение <b>true</b> в файле конфигурации.</gray>'><red>Скрыть сообщение</red></hover></u>
-itemFramesDisabled: "&cВы не можете засунуть особые предметы в рамку!"
-itemMinHearts: "&cВам необходимо минимум %amount% сердец для использования этого предмета!"
-itemMaxHearts: "&cВы достигли максимального количества сердец, возможного для этого
+itemFramesDisabled: "<red>Вы не можете засунуть особые предметы в рамку!"
+itemMinHearts: "<red>Вам необходимо минимум %amount% сердец для использования этого предмета!"
+itemMaxHearts: "<red>Вы достигли максимального количества сердец, возможного для этого
   предмета!"
 webhookEliminationTitle: Игрок уничтожен
 webhookElimination: "**%player%** был уничтожен благодаря **%killer%**!"
@@ -89,60 +89,60 @@ webhookEliminationColor: ea3323
 webhookReviveTitle: Игрок возраждён
 webhookRevive: "**%player%** был возрождён благодаря **%reviver%**!"
 webhookReviveColor: b094ee
-gracePeriodEnd: "&7Ваш период защиты закончился!"
-noDamageInGracePeriod: "&cВы не можете атаковать игроков во время активной защиты!"
-noHeartUseInGracePeriod: "&cВы не можете использовать сердца во время периода активной
+gracePeriodEnd: "<gray>Ваш период защиты закончился!"
+noDamageInGracePeriod: "<red>Вы не можете атаковать игроков во время активной защиты!"
+noHeartUseInGracePeriod: "<red>Вы не можете использовать сердца во время периода активной
   защиты!"
-noHeartGainInGracePeriod: "&cВы не можете получить сердца во время периода активной
+noHeartGainInGracePeriod: "<red>Вы не можете получить сердца во время периода активной
   защиты!"
-noHeartGainFromPlayersInGracePeriod: "&cВы не можете получить сердца от других игроков
+noHeartGainFromPlayersInGracePeriod: "<red>Вы не можете получить сердца от других игроков
   во время периода активной защиты!"
-noHeartLossInGracePeriod: "&cВы не можете потерять сердца во время периода активной
+noHeartLossInGracePeriod: "<red>Вы не можете потерять сердца во время периода активной
   защиты!"
-gracePeriodSkipSuccess: "&7Период активной защиты для &c%playerCount% &7пропущен."
-gracePeriodResetSuccess: "&7Период активной защиты для &c%playerCount% &7сброшен."
-gracePeriodSkipSuccessOnePlayer: "&7Период активной защиты для &c%player%&7 пропущен."
-gracePeriodResetSuccessOnePlayer: "&7Период активной защиты для &c%player%&7 сброшен."
-interactionNotAllowed: "&cВам запрещено взаимодействовать с этим!"
-generatingDebugReport: "&7Создание отчёта отладки..."
-debugReportUploaded: "&aОтчёт отладки был загружен: "
-clickToOpenDebugReport: "&eНажмите, чтобы открыть отчёт отладки"
-failedToUploadDebugReport: "&cОшибка загрузки отчёта отладки. Пожалуйста, попробуйте
+gracePeriodSkipSuccess: "<gray>Период активной защиты для <red>%playerCount% <gray>пропущен."
+gracePeriodResetSuccess: "<gray>Период активной защиты для <red>%playerCount% <gray>сброшен."
+gracePeriodSkipSuccessOnePlayer: "<gray>Период активной защиты для <red>%player%<gray> пропущен."
+gracePeriodResetSuccessOnePlayer: "<gray>Период активной защиты для <red>%player%<gray> сброшен."
+interactionNotAllowed: "<red>Вам запрещено взаимодействовать с этим!"
+generatingDebugReport: "<gray>Создание отчёта отладки..."
+debugReportUploaded: "<green>Отчёт отладки был загружен: "
+clickToOpenDebugReport: "<yellow>Нажмите, чтобы открыть отчёт отладки"
+failedToUploadDebugReport: "<red>Ошибка загрузки отчёта отладки. Пожалуйста, попробуйте
   позже."
-errorWhileGeneratingDebugReport: "&cПроизошла ошибка во время создания отчёта отладки."
-recipeInventoryTitle: "&8Рецепт создания"
-reviveBeaconAlreadyInUse: "&cЭтот маяк возрождения уже используется! Пожалуйста, подождите,
+errorWhileGeneratingDebugReport: "<red>Произошла ошибка во время создания отчёта отладки."
+recipeInventoryTitle: "<dark_gray>Рецепт создания"
+reviveBeaconAlreadyInUse: "<red>Этот маяк возрождения уже используется! Пожалуйста, подождите,
   пока текущий процесс возрождения не завершится."
-reviveBeaconStart: "&c%player% &7будет возрожден через &c%seconds% секунд&7! Пожалуйста,
+reviveBeaconStart: "<red>%player% <gray>будет возрожден через <red>%seconds% секунд<gray>! Пожалуйста,
   подождите..."
-reviveBeaconBreak: "&7Ваш маяк возрождения был разрушен игроком &c%breaker%&7, процесс
+reviveBeaconBreak: "<gray>Ваш маяк возрождения был разрушен игроком <red>%breaker%<gray>, процесс
   возрождения отменен."
-beaconInUseInteract: "&7В данный момент идет процесс возрождения. Осталось времени:
-  &c%timeLeft% секунд&7."
-alreadyRevivingPlayer: "&cЭтот игрок уже возрождается другим маяком! Пожалуйста, подождите,
+beaconInUseInteract: "<gray>В данный момент идет процесс возрождения. Осталось времени:
+  <red>%timeLeft% секунд<gray>."
+alreadyRevivingPlayer: "<red>Этот игрок уже возрождается другим маяком! Пожалуйста, подождите,
   пока текущий процесс не завершится."
-noReviveBeaconBreak: "&cВы не можете разрушить маяк возрождения, пока он используется!"
-noItemUseInWorld: "&cВы не можете использовать этот предмет в этом мире!"
-bypassVictim: "&aВаши сердца защищены из-за права обхода!"
-bypassKiller: "&eУ %player% включено право обхода; сердца не получены."
-noDamageWithBypass: "&cВы не можете наносить урон людям с включенным обходом!"
-noHeartUseWithBypass: "&cВы не можете использовать сердца со включенным обходом!"
-bypassStatusActive: "&7Обход &aвключен &7для %player%."
-bypassStatusInactive: "&7Обход &cвыключен &7для %player%."
+noReviveBeaconBreak: "<red>Вы не можете разрушить маяк возрождения, пока он используется!"
+noItemUseInWorld: "<red>Вы не можете использовать этот предмет в этом мире!"
+bypassVictim: "<green>Ваши сердца защищены из-за права обхода!"
+bypassKiller: "<yellow>У %player% включено право обхода; сердца не получены."
+noDamageWithBypass: "<red>Вы не можете наносить урон людям с включенным обходом!"
+noHeartUseWithBypass: "<red>Вы не можете использовать сердца со включенным обходом!"
+bypassStatusActive: "<gray>Обход <green>включен <gray>для %player%."
+bypassStatusInactive: "<gray>Обход <red>выключен <gray>для %player%."
 debugUploadConfirm: |2
 
-   <#8b73f6>&lОтправляем запрос отладки&r
+   <#8b73f6><b>Отправляем запрос отладки<reset>
 
-  &7 Вы уверены, что хотите загрузить запрос отладки? Подтверждая, вы соглашаетесь с <u><click:OPEN_URL:https://debug.zetaplugins.com/privacy>Политикой конфиденциальности</click></u>.
+  <gray> Вы уверены, что хотите загрузить запрос отладки? Подтверждая, вы соглашаетесь с <u><click:OPEN_URL:https://debug.zetaplugins.com/privacy>Политикой конфиденциальности</click></u>.
 
-   <#8b73f6><click:RUN_COMMAND:%command%>[Нажмите сюда]</click> &r&8или запустите <u>%command%</u>
-debugFailedUpload: "&cОшибка загрузки запроса отладки!"
+   <#8b73f6><click:RUN_COMMAND:%command%>[Нажмите сюда]</click> <reset><dark_gray>или запустите <u>%command%</u>
+debugFailedUpload: "<red>Ошибка загрузки запроса отладки!"
 debugUploadSuccess: |
-  &8 [&a✔&8] &7Запрос отладки успешно загружен! Вы можете посмотреть его здесь:
+  <dark_gray> [<green>✔<dark_gray>] <gray>Запрос отладки успешно загружен! Вы можете посмотреть его здесь:
    <u><#8b73f6><click:OPEN_URL:%url%>%url%</click></u>
-debugFailedToCreateFile: "&cОшибка создания файла для отладки: %error%"
+debugFailedToCreateFile: "<red>Ошибка создания файла для отладки: %error%"
 debugFileCreated: |-
-  &8 [&a✔&8] &7Отладочная информация сохранена в следующие файлы:
+  <dark_gray> [<green>✔<dark_gray>] <gray>Отладочная информация сохранена в следующие файлы:
   <click:COPY_TO_CLIPBOARD:%jsonPath%><#8b73f6>%jsonPath%</click>
   <click:COPY_TO_CLIPBOARD:%txtPath%><#8b73f6>%txtPath%</click>
-gracePeriodWithdraw: "&cВы не можете снимать сердца во время включенной защиты!"
+gracePeriodWithdraw: "<red>Вы не можете снимать сердца во время включенной защиты!"

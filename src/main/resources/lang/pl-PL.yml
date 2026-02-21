@@ -1,61 +1,61 @@
 ---
-prefix: "&8[&cLifeStealZ&8]"
+prefix: "<dark_gray>[<red>LifeStealZ<dark_gray>]"
 newVersionAvailable: |-
-  &7Dostępna jest nowa wersja pluginu LifeStealZ!
-  &c<click:OPEN_URL:https://modrinth.com/plugin/lifestealz/versions>https://modrinth.com/plugin/lifestealz/versions</click>
-usageError: "&cUżycie: %usage%"
+  <gray>Dostępna jest nowa wersja pluginu LifeStealZ!
+  <red><click:OPEN_URL:https://modrinth.com/plugin/lifestealz/versions>https://modrinth.com/plugin/lifestealz/versions</click>
+usageError: "<red>Użycie: %usage%"
 noPermsError: "<red>Nie masz permisji do tej komendy!"
-playerNotFound: "&cNie znaleziono gracza"
-worldNotWhitelisted: "&cTen świat nie znajduje się na whitelist LifeStealZ"
-specifyPlayerOrBePlayer: "&cMusisz albo określić gracza, albo sam być graczem!"
-noPermissionError: "&cNie masz do tego permisji!"
-noPlayerData: "&cTen gracz nie grał jeszcze na tym serwerze!"
-eliminateSuccess: "&7Pomyślnie wyeliminowałeś gracza &c%player%&7!"
-reviveSuccess: "&7Pomyślnie ożywiłeś gracza &c%player%!"
-reviveMaxReached: "&cTen gracz został już ożywiony %amount% times!"
-onlyReviveElimPlayers: "&cMożesz wskrzesić jedynie wyeliminowanych graczy!"
-eliminatedJoin: "&cNie masz już żadnych serc!"
-eliminationAnnouncement: "&c%player% &7został wyeliminowany przez &c%killer%&7!"
-eliminateionAnnouncementNature: "&c%player% &7został wyeliminowany!"
-setHeartsConfirm: "&7Pomyślnie ustawiono graczowi &7%player% c%amount% &7serc"
-getHearts: "&c%player% &7aktualnie ma &c%amount% &7serc!"
-reloadMsg: "&7Pomyślnie przeładowałeś plugin!"
-versionMsg: "&7Używasz wersji <red>%version%"
-noWithdraw: "&cJeśli wypłacisz serce, zostaniesz wyeliminowany!"
-withdrawConfirmmsg: "&8&oUżyj <underlined><click:SUGGEST_COMMAND:/withdrawheart %amount%
+playerNotFound: "<red>Nie znaleziono gracza"
+worldNotWhitelisted: "<red>Ten świat nie znajduje się na whitelist LifeStealZ"
+specifyPlayerOrBePlayer: "<red>Musisz albo określić gracza, albo sam być graczem!"
+noPermissionError: "<red>Nie masz do tego permisji!"
+noPlayerData: "<red>Ten gracz nie grał jeszcze na tym serwerze!"
+eliminateSuccess: "<gray>Pomyślnie wyeliminowałeś gracza <red>%player%<gray>!"
+reviveSuccess: "<gray>Pomyślnie ożywiłeś gracza <red>%player%!"
+reviveMaxReached: "<red>Ten gracz został już ożywiony %amount% times!"
+onlyReviveElimPlayers: "<red>Możesz wskrzesić jedynie wyeliminowanych graczy!"
+eliminatedJoin: "<red>Nie masz już żadnych serc!"
+eliminationAnnouncement: "<red>%player% <gray>został wyeliminowany przez <red>%killer%<gray>!"
+eliminateionAnnouncementNature: "<red>%player% <gray>został wyeliminowany!"
+setHeartsConfirm: "<gray>Pomyślnie ustawiono graczowi <gray>%player% c%amount% <gray>serc"
+getHearts: "<red>%player% <gray>aktualnie ma <red>%amount% <gray>serc!"
+reloadMsg: "<gray>Pomyślnie przeładowałeś plugin!"
+versionMsg: "<gray>Używasz wersji <red>%version%"
+noWithdraw: "<red>Jeśli wypłacisz serce, zostaniesz wyeliminowany!"
+withdrawConfirmmsg: "<dark_gray><i>Użyj <underlined><click:SUGGEST_COMMAND:/withdrawheart %amount%
   potwierdź>/withdrawheart %amount% potwierdź</click></underlined> jeśli naprawdę
   chcesz wypłacić serce"
-maxHeartLimitReached: "&cOsiągnąłeś limit serc &7(&f%limit%&7)"
-closeBtn: "&cZamknij"
-backBtn: "&cCofnij"
-nextBtn: "&cNastępne"
-reviveTitle: "&8Odrodź gracza"
-revivePlayerDesc: "&7Kliknij, aby ożywić tego gracza"
-viewheartsYou: "&7Aktualnie posiadasz &c%amount% &7serc!"
-viewheartsOther: "&c%player% &7ma aktualnie &c%amount% &7serc!"
-heartconsume: "&7Masz &c%amount% &7serc!"
-heartconsumeCooldown: "&cMusisz poczekać zanim użyjesz kolejnego serca!"
+maxHeartLimitReached: "<red>Osiągnąłeś limit serc <gray>(<white>%limit%<gray>)"
+closeBtn: "<red>Zamknij"
+backBtn: "<red>Cofnij"
+nextBtn: "<red>Następne"
+reviveTitle: "<dark_gray>Odrodź gracza"
+revivePlayerDesc: "<gray>Kliknij, aby ożywić tego gracza"
+viewheartsYou: "<gray>Aktualnie posiadasz <red>%amount% <gray>serc!"
+viewheartsOther: "<red>%player% <gray>ma aktualnie <red>%amount% <gray>serc!"
+heartconsume: "<gray>Masz <red>%amount% <gray>serc!"
+heartconsumeCooldown: "<red>Musisz poczekać zanim użyjesz kolejnego serca!"
 recipeNotCraftable: Ten item nie jest do stworzenia!
-altKill: "&cProszę nie zabijać altów! Ta próba została zarejestrowana!"
-withdrawMin: "&cNie możesz wypłacić mniej niż 1 serce!"
-noInventorySpace: "&cNie masz tyle miejsca w ekwipunku by wypłacić tyle serc!"
-giveItem: "&7Otrzymałeś %amount%x &c%item%&7!"
-heartGainCooldown: "&cMusisz poczekać, zanim zdobędziesz kolejne serce!"
-exportData: "&7Pomyślnie wyeksportowano dane gracza do &c%file%.csv"
+altKill: "<red>Proszę nie zabijać altów! Ta próba została zarejestrowana!"
+withdrawMin: "<red>Nie możesz wypłacić mniej niż 1 serce!"
+noInventorySpace: "<red>Nie masz tyle miejsca w ekwipunku by wypłacić tyle serc!"
+giveItem: "<gray>Otrzymałeś %amount%x <red>%item%<gray>!"
+heartGainCooldown: "<red>Musisz poczekać, zanim zdobędziesz kolejne serce!"
+exportData: "<gray>Pomyślnie wyeksportowano dane gracza do <red>%file%.csv"
 importData: |-
-  &7Pomyślnie zaimportowano &c%file%.csv&7!
-  &cZrestartuj serwer, aby zapewnić bezproblemową migrację!
+  <gray>Pomyślnie zaimportowano <red>%file%.csv<gray>!
+  <red>Zrestartuj serwer, aby zapewnić bezproblemową migrację!
 unwhitelistedWorld: |2
 
   <red><b><grey>></grey> Whitelista świata</b></red>
 
-  <gray>Obecnie grasz na świecie <red><click:COPY_TO_CLIPBOARD:'&world&'><hover:show_text:'&7Kopiuj do schowka'>&world&</hover></click></red>.
+  <gray>Obecnie grasz na świecie <red><click:COPY_TO_CLIPBOARD:'&world&'><hover:show_text:'<gray>Kopiuj do schowka'>&world&</hover></click></red>.
   Ten świat nie znajduje się na białej liście. LSZ nie zostanie tutaj aktywowany.</gray>
 
   <red><u><click:open_url:'https://lsz.strassburger.dev/configuration/whitelist'>Dokumentacja</click></u></red> <red><u><click:open_url:'https://strassburger.org/discord'>Wsparcie Discord</click></u></red> <u><hover:show_text:'<gray>Aby zignorować: Ustaw 'supressWhitelistMessage' na <b>true</b> w pliku konfiguracyjnym.</gray>'><red>Ukryj wiadomość</red></hover></u>
-itemFramesDisabled: "&cNie możesz umieszczać custom przedmiotów w ramkach!"
+itemFramesDisabled: "<red>Nie możesz umieszczać custom przedmiotów w ramkach!"
 itemMinHearts: Aby użyć tego przedmiotu, potrzebujesz co najmniej %amount% serc
-itemMaxHearts: "&cOsiągnąłeś maksymalną liczbę serc dla tego przedmiotu!"
+itemMaxHearts: "<red>Osiągnąłeś maksymalną liczbę serc dla tego przedmiotu!"
 webhookEliminationTitle: Gracz Wyeliminowany
 webhookElimination: Gracz **%player%** został wyeliminowany przez **%killer%**!
 webhookEliminationColor: ea3323

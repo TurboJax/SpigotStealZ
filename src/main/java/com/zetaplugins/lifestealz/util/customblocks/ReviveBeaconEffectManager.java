@@ -1,12 +1,14 @@
 package com.zetaplugins.lifestealz.util.customblocks;
 
-import org.bukkit.Sound;
+import com.zetaplugins.lifestealz.LifeStealZ;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import org.bukkit.*;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.BlockDisplay;
-import org.bukkit.entity.Display;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -14,11 +16,6 @@ import org.bukkit.util.Transformation;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
-import com.zetaplugins.lifestealz.LifeStealZ;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public final class ReviveBeaconEffectManager {
     private final LifeStealZ plugin;
@@ -195,7 +192,6 @@ public final class ReviveBeaconEffectManager {
         BlockDisplay display = location.getWorld().spawn(location, BlockDisplay.class);
         display.setBlock(decoyMaterial.createBlockData());
         display.setPersistent(true);
-        display.setBrightness(new Display.Brightness(8, 8));
 
         decoyDisplays.put(getKey(location), display);
 

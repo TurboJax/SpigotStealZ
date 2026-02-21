@@ -1,6 +1,5 @@
 package com.zetaplugins.lifestealz.util.commands;
 
-import net.kyori.adventure.text.Component;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -99,13 +98,13 @@ public final class CommandUtils {
     }
 
     public static void throwUsageError(CommandSender sender, String usage) {
-        Component msg = MessageUtils.getAndFormatMsg(false, "usageError", "&cUsage: %usage%",
+        String msg = MessageUtils.getAndFormatMsg(false, "usageError", "<red>Usage: %usage%",
                 new MessageUtils.Replaceable("%usage%", usage));
         sender.sendMessage(msg);
     }
 
     public static void throwPermissionError(CommandSender sender) {
-        Component msg = MessageUtils.getAndFormatMsg(false, "noPermissionError", "&cYou don't have permission to use this!");
+        String msg = MessageUtils.getAndFormatMsg(false, "noPermissionError", "<red>You don't have permission to use this!");
         sender.sendMessage(msg);
     }
 

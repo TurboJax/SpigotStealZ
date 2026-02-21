@@ -56,7 +56,7 @@ public final class ReviveBeaconPlaceListener implements Listener {
             event.getPlayer().sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "noItemUseInWorld",
-                    "&cYou cannot use this item in this world!"
+                    "<red>You cannot use this item in this world!"
             ));
             return;
         }

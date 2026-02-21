@@ -4,7 +4,6 @@ import com.zetaplugins.lifestealz.events.ZPlayerDeathEventBase;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import lombok.Getter;
 import lombok.Setter;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
@@ -19,7 +18,7 @@ public class ZPlayerMaxHeartsReachedEvent extends ZPlayerDeathEventBase {
     private boolean shouldDropHeartsInstead;
     
     @Getter @Setter
-    private Component maxHeartsMessage;
+    private String maxHeartsMessage;
 
     public ZPlayerMaxHeartsReachedEvent(PlayerDeathEvent originalEvent, Player killer, double maxHearts) {
         super(originalEvent);
@@ -29,7 +28,7 @@ public class ZPlayerMaxHeartsReachedEvent extends ZPlayerDeathEventBase {
         this.maxHeartsMessage = MessageUtils.getAndFormatMsg(
                 false,
                 "maxHeartLimitReached",
-                "&cYou already reached the limit of %limit% hearts!",
+                "<red>You already reached the limit of %limit% hearts!",
                 new MessageUtils.Replaceable("%limit%", String.valueOf((int) (maxHearts / 2)))
         );
     }

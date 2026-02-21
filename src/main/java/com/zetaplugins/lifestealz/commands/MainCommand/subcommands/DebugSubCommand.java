@@ -11,7 +11,6 @@ import com.zetaplugins.lifestealz.commands.SubCommand;
 import com.zetaplugins.lifestealz.util.commands.CommandUtils;
 
 import java.io.*;
-import java.util.*;
 import java.util.logging.Level;
 
 import static com.zetaplugins.lifestealz.util.commands.CommandUtils.throwUsageError;
@@ -56,7 +55,7 @@ public final class DebugSubCommand implements SubCommand {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "debugUploadConfirm",
-                    "\n <#8b73f6>&lUploading Debug Report&r\n\n&7 Are you sure you want to upload the debug report? By confirming, you accept our <u><click:OPEN_URL:https://debug.zetaplugins.com/privacy>Privacy Policy</click></u>.\n\n <#8b73f6><click:RUN_COMMAND:%command%>[Click Here]</click> &r&8or run <u>%command%</u>\n",
+                    "\n <#8b73f6><b>Uploading Debug Report</b>\n\n<gray> Are you sure you want to upload the debug report? By confirming, you accept our <u><click:OPEN_URL:https://debug.zetaplugins.com/privacy>Privacy Policy</click></u>.\n\n <#8b73f6><click:RUN_COMMAND:%command%>[Click Here]</click> &r<dark_gray>or run <u>%command%</u>\n",
                     new MessageUtils.Replaceable("%command%", "/lifestealz debug upload confirm")
             ));
             return true;
@@ -74,7 +73,7 @@ public final class DebugSubCommand implements SubCommand {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "debugFailedUpload",
-                    "&cFailed to upload debug report!"
+                    "<red>Failed to upload debug report!"
             ));
             return false;
         }
@@ -84,7 +83,7 @@ public final class DebugSubCommand implements SubCommand {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 false,
                 "debugUploadSuccess",
-                "&8 [&a✔&8] &7Debug report uploaded successfully! You can view it here:\n <u><#8b73f6><click:OPEN_URL:%url%>%url%</click></u>\n",
+                "<dark_gray> [<green>✔<dark_gray>] <gray>Debug report uploaded successfully! You can view it here:\n <u><#8b73f6><click:OPEN_URL:%url%>%url%</click></u>\n",
                 new MessageUtils.Replaceable("%url%", formattedUrl)
         ));
         return true;
@@ -112,7 +111,7 @@ public final class DebugSubCommand implements SubCommand {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "debugFailedToCreateFile",
-                    "&cFailed to create debug report file: %error%",
+                    "<red>Failed to create debug report file: %error%",
                     new MessageUtils.Replaceable("%error%", e.getMessage())
             ));
             plugin.getLogger().log(Level.SEVERE, "Failed to write debug report", e);
@@ -122,7 +121,7 @@ public final class DebugSubCommand implements SubCommand {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 false,
                 "debugFileCreated",
-                "&8 [&a✔&8] &7Saved debug data to the following files:\n<click:COPY_TO_CLIPBOARD:%jsonPath%><#8b73f6>%jsonPath%</click>\n<click:COPY_TO_CLIPBOARD:%txtPath%><#8b73f6>%txtPath%</click>",
+                "<dark_gray> [<green>✔<dark_gray>] <gray>Saved debug data to the following files:\n<click:COPY_TO_CLIPBOARD:%jsonPath%><#8b73f6>%jsonPath%</click>\n<click:COPY_TO_CLIPBOARD:%txtPath%><#8b73f6>%txtPath%</click>",
                 new MessageUtils.Replaceable("%jsonPath%", reportJson.getAbsolutePath()),
                 new MessageUtils.Replaceable("%txtPath%", reportTxt.getAbsolutePath())
         ));

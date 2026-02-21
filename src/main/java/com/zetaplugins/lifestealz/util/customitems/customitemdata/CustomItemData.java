@@ -34,7 +34,7 @@ public class CustomItemData {
         ConfigurationSection section = getConfigurationSection();
         if (section == null) throw new IllegalArgumentException("Custom item with id " + itemId + " does not exist!");
 
-        this.name = section.getString("name", "&7Fallback Name");
+        this.name = section.getString("name", "<gray>Fallback Name");
         this.lore = section.getStringList("lore");
         this.material = Material.valueOf(section.getString("material", "STONE"));
         this.enchanted = section.getBoolean("enchanted", false);

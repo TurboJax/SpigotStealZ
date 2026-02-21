@@ -44,7 +44,7 @@ public final class GuiManager {
     }
 
     private static Inventory getReviveInventory(List<UUID> eliminatedPlayers, int page, LifeStealZ plugin) {
-        Inventory inventory = Bukkit.createInventory(null, 6 * 9, MessageUtils.getAndFormatMsg(false, "reviveTitle", "&8Revive a player"));
+        Inventory inventory = Bukkit.createInventory(null, 6 * 9, MessageUtils.getAndFormatMsg(false, "reviveTitle", "<dark_gray>Revive a player"));
 
         int itemsPerPage = 5 * 9;
 

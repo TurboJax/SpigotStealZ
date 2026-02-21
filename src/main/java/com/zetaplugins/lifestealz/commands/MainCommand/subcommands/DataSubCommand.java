@@ -48,7 +48,7 @@ public final class DataSubCommand implements SubCommand {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 true,
                 "exportingData",
-                "&7Exporting player data..."
+                "<gray>Exporting player data..."
         ));
         BukkitTask task = plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             String filePath = storage.export(fileName);
@@ -56,14 +56,14 @@ public final class DataSubCommand implements SubCommand {
                 sender.sendMessage(MessageUtils.getAndFormatMsg(
                         true,
                         "exportData",
-                        "&7Successfully exported player data to &c%file%",
+                        "<gray>Successfully exported player data to <red>%file%",
                         new MessageUtils.Replaceable("%file%", filePath)
                 ));
             } else {
                 sender.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "exportDataError",
-                        "&cFailed to export data! Check console for details."
+                        "<red>Failed to export data! Check console for details."
                 ));
             }
         });
@@ -75,14 +75,14 @@ public final class DataSubCommand implements SubCommand {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 true,
                 "importingData",
-                "&7Importing player data..."
+                "<gray>Importing player data..."
         ));
         BukkitTask task = plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
             storage.importData(fileName);
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     true,
                     "importData",
-                    "&7Successfully imported &c%file%.csv&7!\n&cPlease restart the server, to ensure flawless migration!",
+                    "<gray>Successfully imported <red>%file%.csv<gray>!\n<red>Please restart the server, to ensure flawless migration!",
                     new MessageUtils.Replaceable("%file%", fileName)
             ));
         });

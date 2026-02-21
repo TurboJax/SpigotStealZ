@@ -1,6 +1,5 @@
 package com.zetaplugins.lifestealz.util;
 
-import net.kyori.adventure.text.Component;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -97,10 +96,10 @@ public final class GracePeriodManager {
         if (!isEnabled()) return;
 
         if (getConfig().shouldAnnounce()) {
-            Component endMessage = MessageUtils.getAndFormatMsg(
+            String endMessage = MessageUtils.getAndFormatMsg(
                     true,
                     "gracePeriodEnd",
-                    "&7The grace period has ended!"
+                    "<gray>The grace period has ended!"
             );
             player.sendMessage(endMessage);
         }

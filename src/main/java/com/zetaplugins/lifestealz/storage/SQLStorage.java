@@ -1,16 +1,15 @@
 package com.zetaplugins.lifestealz.storage;
 
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.storage.connectionPool.ConnectionPool;
-
 import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 public abstract class SQLStorage extends Storage {
     private static final String CSV_SEPARATOR = ",";
@@ -257,7 +256,7 @@ public abstract class SQLStorage extends Storage {
 
     @Override
     public String export(String fileName) {
-        String filePath = getPlugin().getDataFolder().getPath() + "/" + fileName + ".csv";
+        String filePath = getPlugin().getDataFolder().getPath() + File.pathSeparator + fileName + ".csv";
         try (Connection connection = getConnection()) {
             if (connection == null) return null;
 
@@ -293,7 +292,7 @@ public abstract class SQLStorage extends Storage {
 
     @Override
     public void importData(String fileName) {
-        String filePath = getPlugin().getDataFolder().getPath() + "/" + fileName;
+        String filePath = getPlugin().getDataFolder().getPath() + File.pathSeparator + fileName;
         long startTime = System.currentTimeMillis();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath));

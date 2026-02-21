@@ -4,7 +4,6 @@ import com.zetaplugins.lifestealz.events.ZPlayerDeathEventBase;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import lombok.Getter;
 import lombok.Setter;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
@@ -19,7 +18,7 @@ public class ZPlayerHeartGainCooldownEvent extends ZPlayerDeathEventBase {
     private boolean shouldDropHeartsInstead;
     
     @Getter @Setter
-    private Component cooldownMessage;
+    private String cooldownMessage;
 
     public ZPlayerHeartGainCooldownEvent(PlayerDeathEvent originalEvent, Player killer, long timeLeft) {
         super(originalEvent);

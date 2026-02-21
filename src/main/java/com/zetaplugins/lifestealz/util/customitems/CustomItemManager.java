@@ -1,22 +1,21 @@
 package com.zetaplugins.lifestealz.util.customitems;
 
-import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.Nullable;
 import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.util.MessageUtils;
-import io.papermc.paper.datacomponent.DataComponentTypes;
-import io.papermc.paper.datacomponent.item.CustomModelData;
 import com.zetaplugins.lifestealz.util.customitems.customitemdata.CustomItemData;
+
+import net.md_5.bungee.api.ChatColor;
 
 import java.util.*;
 import java.util.logging.Level;
@@ -68,7 +67,7 @@ public final class CustomItemManager {
             return ci.getItemStack();
         } catch (IllegalArgumentException ex) {
             LifeStealZ.getInstance().getLogger().log(Level.SEVERE, "Could not create custom item with id '" + itemId + "': " + ex.getMessage(), ex);
-            return new CustomItem(Material.BARRIER).setName("&cInvalid Item").setLore(new ArrayList<>(List.of("&7This item is invalid or does not exist.", "&cCheck the server console for more information!"))).makeForbidden().getItemStack();
+            return new CustomItem(Material.BARRIER).setName("<red>Invalid Item").setLore(new ArrayList<>(List.of("<gray>This item is invalid or does not exist.", "<red>Check the server console for more information!"))).makeForbidden().getItemStack();
         }
     }
 
@@ -144,14 +143,15 @@ public final class CustomItemManager {
      */
     public static ItemStack createCloseItem() {
         CustomItem ci = new CustomItem(Material.BARRIER)
-                .setName(MessageUtils.getAndFormatMsg(false, "closeBtn", "&cClose"))
+                .setName(MessageUtils.getAndFormatMsg(false, "closeBtn", "<red>Close"))
                 .addFlag(ItemFlag.HIDE_ATTRIBUTES)
                 .makeForbidden();
 
-        ci.getItemStack().setData(
-                DataComponentTypes.CUSTOM_MODEL_DATA,
-                CustomModelData.customModelData().addString("lifestealz_close").build()
-        );
+        ItemMeta itemMeta = ci.getItemStack().getItemMeta();
+        CustomModelDataComponent cmd = itemMeta.getCustomModelDataComponent();
+        cmd.setStrings(List.of("lifestealz_close"));
+        itemMeta.setCustomModelDataComponent(cmd);
+        ci.getItemStack().setItemMeta(itemMeta);
 
         return ci.getItemStack();
     }
@@ -164,17 +164,17 @@ public final class CustomItemManager {
      */
     public static ItemStack createBackItem(int page) {
         CustomItem ci = new CustomItem(Material.ARROW)
-                .setName(MessageUtils.getAndFormatMsg(false, "backBtn", "&cBack"))
+                .setName(MessageUtils.getAndFormatMsg(false, "backBtn", "<red>Back"))
                 .addFlag(ItemFlag.HIDE_ATTRIBUTES)
                 .makeForbidden();
 
-        ci.getItemStack().setData(
-                DataComponentTypes.CUSTOM_MODEL_DATA,
-                CustomModelData.customModelData().addString("lifestealz_back").build()
-        );
-
         ItemMeta itemMeta = ci.getItemStack().getItemMeta();
         itemMeta.getPersistentDataContainer().set(REVIVE_PAGE_KEY, PersistentDataType.INTEGER, page);
+
+        CustomModelDataComponent cmd = itemMeta.getCustomModelDataComponent();
+        cmd.setStrings(List.of("lifestealz_back"));
+        itemMeta.setCustomModelDataComponent(cmd);
+
         ci.getItemStack().setItemMeta(itemMeta);
 
         return ci.getItemStack();
@@ -188,17 +188,17 @@ public final class CustomItemManager {
      */
     public static ItemStack createNextItem(int page) {
         CustomItem ci = new CustomItem(Material.ARROW)
-                .setName(MessageUtils.getAndFormatMsg(false, "nextBtn", "&cNext"))
+                .setName(MessageUtils.getAndFormatMsg(false, "nextBtn", "<red>Next"))
                 .addFlag(ItemFlag.HIDE_ATTRIBUTES)
                 .makeForbidden();
-
-        ci.getItemStack().setData(
-                DataComponentTypes.CUSTOM_MODEL_DATA,
-                CustomModelData.customModelData().addString("lifestealz_next").build()
-        );
-
+            
         ItemMeta itemMeta = ci.getItemStack().getItemMeta();
         itemMeta.getPersistentDataContainer().set(REVIVE_PAGE_KEY, PersistentDataType.INTEGER, page);
+
+        CustomModelDataComponent cmd = itemMeta.getCustomModelDataComponent();
+        cmd.setStrings(List.of("lifestealz_next"));
+        itemMeta.setCustomModelDataComponent(cmd);
+        
         ci.getItemStack().setItemMeta(itemMeta);
 
         return ci.getItemStack();
@@ -210,15 +210,16 @@ public final class CustomItemManager {
      */
     public static ItemStack createHeartAnimationTotem() {
         CustomItem ci = new CustomItem(Material.TOTEM_OF_UNDYING)
-                .setName(MessageUtils.getAndFormatMsg(false, "heartAnimationTotem", "&cHeart Animation"))
-                .setLore(new ArrayList<>(List.of("&7This item is used for heart animations.")))
+                .setName(MessageUtils.getAndFormatMsg(false, "heartAnimationTotem", "<red>Heart Animation"))
+                .setLore(new ArrayList<>(List.of("<gray>This item is used for heart animations.")))
                 .addFlag(ItemFlag.HIDE_ATTRIBUTES)
                 .makeForbidden();
 
-        ci.getItemStack().setData(
-                DataComponentTypes.CUSTOM_MODEL_DATA,
-                CustomModelData.customModelData().addString("lifestealz_totem").build()
-        );
+        ItemMeta itemMeta = ci.getItemStack().getItemMeta();
+        CustomModelDataComponent cmd = itemMeta.getCustomModelDataComponent();
+        cmd.setStrings(List.of("lifestealz_totem"));
+        itemMeta.setCustomModelDataComponent(cmd);
+        ci.getItemStack().setItemMeta(itemMeta);
 
         return ci.getItemStack();
     }
@@ -306,18 +307,18 @@ public final class CustomItemManager {
      * @return The head of the player
      */
     public static ItemStack getPlayerHead(OfflinePlayer offlinePlayer) {
-        if (offlinePlayer == null || offlinePlayer.getName() == null) return new CustomItem(Material.SKELETON_SKULL).setName("&dUnknown").setLore(new ArrayList<>(List.of("&8" + UUID.randomUUID()))).getItemStack();
+        if (offlinePlayer == null || offlinePlayer.getName() == null) return new CustomItem(Material.SKELETON_SKULL).setName("<light_purple>Unknown").setLore(new ArrayList<>(List.of("<dark_gray>" + UUID.randomUUID()))).getItemStack();
 
         ItemStack head = new ItemStack(Material.PLAYER_HEAD);
         SkullMeta skullMeta = (SkullMeta) head.getItemMeta();
 
-        skullMeta.displayName(Component.text("§d" + offlinePlayer.getName()));
+        skullMeta.setDisplayName(ChatColor.LIGHT_PURPLE + offlinePlayer.getName());
 
-        List<Component> lines = new ArrayList<>();
-        lines.add(MessageUtils.getAndFormatMsg(false, "revivePlayerDesc", "&7Click to revive this player"));
+        List<String> lines = new ArrayList<>();
+        lines.add(MessageUtils.getAndFormatMsg(false, "revivePlayerDesc", "<gray>Click to revive this player"));
         lines.add(MessageUtils.formatMsg("<dark_gray>" + offlinePlayer.getUniqueId()));
 
-        skullMeta.lore(lines);
+        skullMeta.setLore(lines);
         skullMeta.setOwningPlayer(offlinePlayer);
 
         head.setItemMeta(skullMeta);
@@ -334,14 +335,14 @@ public final class CustomItemManager {
         ItemStack head = new ItemStack(Material.SKELETON_SKULL);
         SkullMeta skullMeta = (SkullMeta) head.getItemMeta();
 
-        skullMeta.displayName(Component.text("§d" + LifeStealZ.getInstance().getGeyserManager().getOfflineBedrockPlayerName(uuid)));
+        skullMeta.setDisplayName(ChatColor.LIGHT_PURPLE + LifeStealZ.getInstance().getGeyserManager().getOfflineBedrockPlayerName(uuid));
 
-        List<Component> lines = new ArrayList<>();
-        lines.add(MessageUtils.getAndFormatMsg(false, "revivePlayerDesc", "&7Click to revive this player"));
+        List<String> lines = new ArrayList<>();
+        lines.add(MessageUtils.getAndFormatMsg(false, "revivePlayerDesc", "<gray>Click to revive this player"));
         lines.add(MessageUtils.formatMsg("<dark_gray>" + uuid));
         lines.add(MessageUtils.formatMsg("<dark_gray><i>This player is using the Bedrock Edition of Minecraft.</i>"));
 
-        skullMeta.lore(lines);
+        skullMeta.setLore(lines);
 
         head.setItemMeta(skullMeta);
         return head;

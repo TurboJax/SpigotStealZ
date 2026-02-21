@@ -45,7 +45,7 @@ public final class HeartCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "specifyPlayerOrBePlayer",
-                    "&cYou need to either specify a player or be a player yourself!"
+                    "<red>You need to either specify a player or be a player yourself!"
             ));
             return false;
         }
@@ -56,7 +56,7 @@ public final class HeartCommand implements CommandExecutor, TabCompleter {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 true,
                 "viewheartsYou",
-                "&7You have &c%amount% &7hearts!",
+                "<gray>You have <red>%amount% <gray>hearts!",
                 new MessageUtils.Replaceable("%amount%", Integer.toString(heartCount))));
         return true;
     }
@@ -68,7 +68,6 @@ public final class HeartCommand implements CommandExecutor, TabCompleter {
      * @return Whether the command was executed successfully
      */
     private boolean handleOtherHeartCheck(CommandSender sender, String targetName) {
-
         PlayerData playerdata;
 
         if(plugin.hasGeyser() && plugin.getGeyserPlayerFile().isPlayerStored(targetName)) {
@@ -82,7 +81,7 @@ public final class HeartCommand implements CommandExecutor, TabCompleter {
                 sender.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "playerNotFound",
-                        "&cPlayer not found!"
+                        "<red>Player not found!"
                 ));
                 return false;
             }
@@ -94,7 +93,7 @@ public final class HeartCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "playerNotFound",
-                    "&cPlayer not found!"
+                    "<red>Player not found!"
             ));
             return false;
         }
@@ -103,7 +102,7 @@ public final class HeartCommand implements CommandExecutor, TabCompleter {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 true,
                 "viewheartsOther",
-                "&c%player% &7currently has &c%amount% &7hearts!",
+                "<red>%player% <gray>currently has <red>%amount% <gray>hearts!",
                 new MessageUtils.Replaceable("%amount%", Integer.toString(heartCount)),
                 new MessageUtils.Replaceable("%player%", targetName)));
         return true;

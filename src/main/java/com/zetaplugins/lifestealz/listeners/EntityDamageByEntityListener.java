@@ -40,7 +40,7 @@ public final class EntityDamageByEntityListener implements Listener {
                 damagerPlayer.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noDamageWithBypass",
-                        "&cYou can't damage players with bypass permission!"
+                        "<red>You can't damage players with bypass permission!"
                 ));
                 return;
             }
@@ -50,7 +50,7 @@ public final class EntityDamageByEntityListener implements Listener {
                 damagerPlayer.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noDamageWithBypass",
-                        "&cYou can't damage players with bypass permission!"
+                        "<red>You can't damage players with bypass permission!"
                 ));
                 return;
             }
@@ -62,7 +62,7 @@ public final class EntityDamageByEntityListener implements Listener {
                 damagerPlayer.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noDamageInGracePeriod",
-                        "&cYou can't damage players during the grace period!"
+                        "<red>You can't damage players during the grace period!"
                 ));
                 return;
             }
@@ -72,7 +72,7 @@ public final class EntityDamageByEntityListener implements Listener {
                 damagerPlayer.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noDamageInGracePeriod",
-                        "&cYou can't damage players during the grace period!"
+                        "<red>You can't damage players during the grace period!"
                 ));
                 return;
             }

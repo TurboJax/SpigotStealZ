@@ -43,7 +43,7 @@ public final class ReviveBeaconBreakListener implements Listener {
                 player.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noReviveBeaconBreak",
-                        "&cYou cannot break a revive beacon while it is in use!"
+                        "<red>You cannot break a revive beacon while it is in use!"
                 ));
                 player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
                 return;
@@ -57,7 +57,7 @@ public final class ReviveBeaconBreakListener implements Listener {
                 reviver.sendMessage(MessageUtils.getAndFormatMsg(
                         true,
                         "reviveBeaconBreak",
-                        "&7Your revive beacon has been broken by &c%breaker%&7, the revive process has been cancelled.",
+                        "<gray>Your revive beacon has been broken by <red>%breaker%<gray>, the revive process has been cancelled.",
                         new MessageUtils.Replaceable("%breaker%", player.getName())
                 ));
             }

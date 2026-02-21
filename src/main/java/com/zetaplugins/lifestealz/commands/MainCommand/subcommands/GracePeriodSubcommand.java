@@ -33,7 +33,7 @@ public final class GracePeriodSubcommand implements SubCommand {
         List<OfflinePlayer> targetPlayers = parseOfflinePlayer(args[1], true, true, plugin);
 
         if (targetPlayers.isEmpty()) {
-            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "&cPlayer not found!"));
+            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "<red>Player not found!"));
             return false;
         }
 
@@ -75,12 +75,12 @@ public final class GracePeriodSubcommand implements SubCommand {
                             MessageUtils.getAndFormatMsg(
                                     true,
                                     "gracePeriodSkipSuccess",
-                                    "&7Successfully skipped the grace period for &c%playerCount% &7players.",
+                                    "<gray>Successfully skipped the grace period for <red>%playerCount% <gray>players.",
                                     new MessageUtils.Replaceable("%playerCount%", String.valueOf(successCount))
                             ) : MessageUtils.getAndFormatMsg(
                             true,
                                 "gracePeriodResetSuccess",
-                                "&7Successfully reset the grace period for &c%playerCount% &7players.",
+                                "<gray>Successfully reset the grace period for <red>%playerCount% <gray>players.",
                                 new MessageUtils.Replaceable("%playerCount%", String.valueOf(successCount))
                             )
             );
@@ -90,12 +90,12 @@ public final class GracePeriodSubcommand implements SubCommand {
                             MessageUtils.getAndFormatMsg(
                                     true,
                                     "gracePeriodSkipSuccessOnePlayer",
-                                    "&7Successfully skipped the grace period for &c%player%&7.",
+                                    "<gray>Successfully skipped the grace period for <red>%player%<gray>.",
                                     new MessageUtils.Replaceable("%player%", lastSucessfulPlayer.getName())
                             ) : MessageUtils.getAndFormatMsg(
                             true,
                                 "gracePeriodResetSuccessOnePlayer",
-                                "&7Successfully reset the grace period for &c%player%&7.",
+                                "<gray>Successfully reset the grace period for <red>%player%<gray>.",
                                 new MessageUtils.Replaceable("%player%", lastSucessfulPlayer.getName())
                             )
             );

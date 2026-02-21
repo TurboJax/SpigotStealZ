@@ -40,13 +40,13 @@ public final class InteractionListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "interactionNotAllowed",
-                    "&cYou are not allowed to interact with this!"
+                    "<red>You are not allowed to interact with this!"
             ));
             event.setCancelled(true);
             return;
         }
 
-        if (event.getAction().isRightClick() && item != null) {
+        if ((event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) && item != null) {
             if (CustomItemManager.isForbiddenItem(item)) {
                 event.setCancelled(true);
 
@@ -121,13 +121,13 @@ public final class InteractionListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "noItemUseInWorld",
-                    "&cYou cannot use this item in this world!"
+                    "<red>You cannot use this item in this world!"
             ));
             return;
         }
 
         if (customItemData.requiresPermission() && !player.hasPermission(customItemData.getPermission()) && !player.isOp() && !player.hasPermission("lifestealz.item.*")) {
-            player.sendMessage(MessageUtils.getAndFormatMsg(false, "noPermissionError", "&cYou don't have permission to use this!"));
+            player.sendMessage(MessageUtils.getAndFormatMsg(false, "noPermissionError", "<red>You don't have permission to use this!"));
             return;
         }
 
@@ -135,7 +135,7 @@ public final class InteractionListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "noHeartUseWithBypass",
-                    "&cYou can't use hearts with bypass permission!"
+                    "<red>You can't use hearts with bypass permission!"
             ));
             return;
         }
@@ -144,14 +144,14 @@ public final class InteractionListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "noHeartUseInGracePeriod",
-                    "&cYou can't use hearts during the grace period!"
+                    "<red>You can't use hearts during the grace period!"
             ));
             return;
         }
 
         long heartCooldown = plugin.getConfig().getLong("heartCooldown");
         if (CooldownManager.lastHeartUse.get(player.getUniqueId()) != null && CooldownManager.lastHeartUse.get(player.getUniqueId()) + heartCooldown > System.currentTimeMillis()) {
-            player.sendMessage(MessageUtils.getAndFormatMsg(false, "heartconsumeCooldown", "&cYou have to wait before using another heart!"));
+            player.sendMessage(MessageUtils.getAndFormatMsg(false, "heartconsumeCooldown", "<red>You have to wait before using another heart!"));
             return;
         }
 
@@ -165,17 +165,17 @@ public final class InteractionListener implements Listener {
         final double maxHearts = MaxHeartsManager.getMaxHearts(player, plugin.getConfig());
 
         if (newHearts > maxHearts) {
-            player.sendMessage(MessageUtils.getAndFormatMsg(false, "maxHeartLimitReached", "&cYou already reached the limit of %limit% hearts!", new MessageUtils.Replaceable("%limit%", Integer.toString((int) maxHearts / 2))));
+            player.sendMessage(MessageUtils.getAndFormatMsg(false, "maxHeartLimitReached", "<red>You already reached the limit of %limit% hearts!", new MessageUtils.Replaceable("%limit%", Integer.toString((int) maxHearts / 2))));
             return;
         }
 
         if (playerData.getMaxHealth() < customItemData.getMinHearts() * 2 && customItemData.getMinHearts() != -1) {
-            player.sendMessage(MessageUtils.getAndFormatMsg(false, "itemMinHearts", "&cYou need at least %amount% hearts to use this item!", new MessageUtils.Replaceable("%amount%", Integer.toString(customItemData.getMinHearts()))));
+            player.sendMessage(MessageUtils.getAndFormatMsg(false, "itemMinHearts", "<red>You need at least %amount% hearts to use this item!", new MessageUtils.Replaceable("%amount%", Integer.toString(customItemData.getMinHearts()))));
             return;
         }
 
         if (playerData.getMaxHealth() >= customItemData.getMaxHearts() * 2 && customItemData.getMaxHearts() != -1) {
-            player.sendMessage(MessageUtils.getAndFormatMsg(false, "itemMaxHearts", "&cYou can't use this item with more than %amount% hearts!", new MessageUtils.Replaceable("%amount%", Integer.toString(customItemData.getMaxHearts()))));
+            player.sendMessage(MessageUtils.getAndFormatMsg(false, "itemMaxHearts", "<red>You can't use this item with more than %amount% hearts!", new MessageUtils.Replaceable("%amount%", Integer.toString(customItemData.getMaxHearts()))));
             return;
         }
 
@@ -204,7 +204,7 @@ public final class InteractionListener implements Listener {
         // NOW USES CUSTOM MODEL
         if (plugin.getConfig().getBoolean("playTotemEffect")) playHeartAnimation(player);
 
-        player.sendMessage(MessageUtils.getAndFormatMsg(true, "heartconsume", "&7Consumed a heart and got &c%amount% &7hearts!", new MessageUtils.Replaceable("%amount%", savedHeartAmount + "")));
+        player.sendMessage(MessageUtils.getAndFormatMsg(true, "heartconsume", "<gray>Consumed a heart and got <red>%amount% <gray>hearts!", new MessageUtils.Replaceable("%amount%", savedHeartAmount + "")));
         CooldownManager.lastHeartUse.put(player.getUniqueId(), System.currentTimeMillis());
     }
 
@@ -225,7 +225,7 @@ public final class InteractionListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "noItemUseInWorld",
-                    "&cYou cannot use this item in this world!"
+                    "<red>You cannot use this item in this world!"
             ));
             return;
         }
@@ -246,7 +246,7 @@ public final class InteractionListener implements Listener {
             @Override
             public void run() {
                 // Play the totem animation
-                player.playEffect(EntityEffect.PROTECTED_FROM_DEATH);
+                player.playEffect(EntityEffect.TOTEM_RESURRECT);
                 player.getInventory().setItemInOffHand(originalOffHandItem);
             }
         }.runTaskLater(plugin, 3L);

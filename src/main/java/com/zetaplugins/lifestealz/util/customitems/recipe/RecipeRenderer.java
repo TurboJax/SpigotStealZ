@@ -58,7 +58,7 @@ final class RecipeRenderer {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "recipeNotCraftable",
-                    "&cThis item is not craftable!"
+                    "<red>This item is not craftable!"
             ));
             return;
         }
@@ -99,7 +99,7 @@ final class RecipeRenderer {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "recipeNotCraftable",
-                    "&cThis item is not craftable!"
+                    "<red>This item is not craftable!"
             ));
             return;
         }
@@ -108,7 +108,7 @@ final class RecipeRenderer {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "recipeNotFound",
-                    "&cThis recipe does not exist!"
+                    "<red>This recipe does not exist!"
             ));
             return;
         }
@@ -117,7 +117,7 @@ final class RecipeRenderer {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "recipeNotFound",
-                    "&cThis recipe does not exist!"
+                    "<red>This recipe does not exist!"
             ));
             return;
         }
@@ -136,14 +136,14 @@ final class RecipeRenderer {
                 MessageUtils.getAndFormatMsg(
                         false,
                         "recipeInventoryTitle",
-                        "&8Crafting recipe"
+                        "<dark_gray>Crafting recipe"
                 )
         );
 
         inventory.setItem(40, CustomItemManager.createCloseItem());
 
         ItemStack glass = new CustomItem(Material.GRAY_STAINED_GLASS_PANE)
-                .setName("&c ")
+                .setName("<red> ")
                 .makeForbidden()
                 .getItemStack();
 

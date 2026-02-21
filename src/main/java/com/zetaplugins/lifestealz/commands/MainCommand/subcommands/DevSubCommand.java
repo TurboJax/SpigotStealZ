@@ -59,14 +59,14 @@ public final class DevSubCommand implements SubCommand {
 
             GracePeriodManager gracePeriodManager = plugin.getGracePeriodManager();
 
-            String gracePeriodColor = gracePeriodManager.isInGracePeriod(player) ? "&a" : "&c";
-            String gracePeriodEnabledColor = gracePeriodManager.isEnabled() ? "&a" : "&c";
+            String gracePeriodColor = gracePeriodManager.isInGracePeriod(player) ? "<green>" : "<red>";
+            String gracePeriodEnabledColor = gracePeriodManager.isEnabled() ? "<green>" : "<red>";
 
             sender.sendMessage(MessageUtils.formatMsg(
-                    "&7Is &c" + player.getName() + " &7in grace period? "
+                    "<gray>Is <red>" + player.getName() + " <gray>in grace period? "
                             + gracePeriodColor + gracePeriodManager.isInGracePeriod(player)
-                            + (gracePeriodManager.isInGracePeriod(player) ? " &7(" + gracePeriodManager.getGracePeriodRemaining(player).orElse(-1) + "remaining)" : "")
-                            + "\n&7Grace period enabled: " + gracePeriodEnabledColor + gracePeriodManager.isEnabled() + "&7"
+                            + (gracePeriodManager.isInGracePeriod(player) ? " <gray>(" + gracePeriodManager.getGracePeriodRemaining(player).orElse(-1) + "remaining)" : "")
+                            + "\n<gray>Grace period enabled: " + gracePeriodEnabledColor + gracePeriodManager.isEnabled() + "<gray>"
             ));
         }
 
@@ -92,7 +92,7 @@ public final class DevSubCommand implements SubCommand {
 
         if (optionTwo.equals("refreshCaches")) {
             plugin.getEliminatedPlayersCache().reloadCache();
-            sender.sendMessage(MessageUtils.formatMsg("&7Caches reloaded!"));
+            sender.sendMessage(MessageUtils.formatMsg("<gray>Caches reloaded!"));
         }
 
         if (optionTwo.equals("crash")) {
@@ -101,7 +101,7 @@ public final class DevSubCommand implements SubCommand {
 
         if (optionTwo.equals("cleardatabase")) {
             plugin.getStorage().clearDatabase();
-            sender.sendMessage(MessageUtils.formatMsg("&7Database cleared!"));
+            sender.sendMessage(MessageUtils.formatMsg("<gray>Database cleared!"));
         }
 
         if (optionTwo.equals("giveAnimationTotem")) {
@@ -124,7 +124,7 @@ public final class DevSubCommand implements SubCommand {
                     .map(permission -> permission.getPermission() + (permission.getValue() ? "" : " (denied)"))
                     .reduce((perm1, perm2) -> perm1 + ", " + perm2)
                     .orElse("No permissions found");
-            sender.sendMessage(MessageUtils.formatMsg("&7Effective permissions for " + player.getName() + ": " + effectivePerms));
+            sender.sendMessage(MessageUtils.formatMsg("<gray>Effective permissions for " + player.getName() + ": " + effectivePerms));
             return true;
         }
 

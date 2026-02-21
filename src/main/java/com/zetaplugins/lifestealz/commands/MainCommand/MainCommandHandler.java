@@ -22,7 +22,7 @@ public final class MainCommandHandler implements CommandExecutor {
         this.plugin = plugin;
 
         commands.put("reload", new ReloadSubCommand(plugin));
-        commands.put("help", new HelpSubCommand(plugin));
+        commands.put("help", new HelpSubCommand());
         commands.put("recipe", new RecipeSubCommand(plugin));
         commands.put("hearts", new HeartsSubCommand(plugin));
         commands.put("giveItem", new GiveItemSubCommand(plugin));
@@ -54,7 +54,7 @@ public final class MainCommandHandler implements CommandExecutor {
         sender.sendMessage(MessageUtils.getAndFormatMsg(
                 false,
                 "newVersionMsg",
-                "\n&c<b><grey>></grey> LifeStealZ</b> <grey>v%version%</grey>\n\n&c <u><click:open_url:'https://wiki.lifestealz.com/'>Documentation</click></u>  &c<u><click:open_url:'https://strassburger.org/discord'>Support Discord</click></u>\n",
+                "\n<red><b><grey>></grey> LifeStealZ</b> <grey>v%version%</grey>\n\n<red> <u><click:open_url:'https://wiki.lifestealz.com/'>Documentation</click></u>  <red><u><click:open_url:'https://strassburger.org/discord'>Support Discord</click></u>\n",
                 new MessageUtils.Replaceable("%version%", plugin.getDescription().getVersion())
         ));
     }

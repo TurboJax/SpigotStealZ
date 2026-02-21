@@ -70,7 +70,7 @@ public final class VersionChecker {
      * @return The latest version number as a String, or null if it could not be fetched.
      */
     private String fetchLatestVersion() {
-        String mcVersion = plugin.getServer().getMinecraftVersion();
+        String mcVersion = plugin.getServer().getVersion().split(" ")[0];
         String encodedGameVersion = URLEncoder.encode("[\"" + mcVersion + "\"]", StandardCharsets.UTF_8);
         String versionsUrl = getModrinthProjectUrl() + "/version?game_versions=" + encodedGameVersion;
 

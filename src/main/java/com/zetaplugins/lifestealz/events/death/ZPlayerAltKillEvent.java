@@ -4,7 +4,6 @@ import com.zetaplugins.lifestealz.events.ZPlayerDeathEventBase;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import lombok.Getter;
 import lombok.Setter;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
@@ -25,7 +24,7 @@ public class ZPlayerAltKillEvent extends ZPlayerDeathEventBase {
     private boolean shouldSendMessage;
     
     @Getter @Setter
-    private Component warningMessage;
+    private String warningMessage;
 
     public ZPlayerAltKillEvent(PlayerDeathEvent originalEvent, Player suspectedAlt, String sharedIP) {
         super(originalEvent);
@@ -37,7 +36,7 @@ public class ZPlayerAltKillEvent extends ZPlayerDeathEventBase {
         this.warningMessage = MessageUtils.getAndFormatMsg(
                 false,
                 "altKill",
-                "&cPlease don't kill alts! This attempt has been logged!"
+                "<red>Please don't kill alts! This attempt has been logged!"
         );
     }
 }

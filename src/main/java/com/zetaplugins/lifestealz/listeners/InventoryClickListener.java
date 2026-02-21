@@ -5,8 +5,6 @@ import com.zetaplugins.lifestealz.util.MessageUtils;
 import com.zetaplugins.lifestealz.util.revive.ReviveTask;
 import com.zetaplugins.lifestealz.util.WebHookManager;
 import com.zetaplugins.zetacore.annotations.AutoRegisterListener;
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
 import org.bukkit.*;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
@@ -15,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
@@ -90,6 +89,7 @@ public final class InventoryClickListener implements Listener {
             case ARROW -> GuiManager.openReviveGui(player, getPageFromItem(item));
             case PLAYER_HEAD -> handleReviveClick(item, player, false);
             case SKELETON_SKULL -> handleReviveClick(item, player, true);
+            default -> {}
         }
 
         return true;
@@ -108,7 +108,7 @@ public final class InventoryClickListener implements Listener {
         Location beaconLocation = GuiManager.REVIVE_BEACON_INVENTORY_LOCATIONS.get(player.getUniqueId());
 
         if (beaconLocation == null) {
-            player.sendMessage(Component.text("§cAn error occurred while fetching the beacon location! Please try again."));
+            player.sendMessage(ChatColor.RED + "An error occurred while fetching the beacon location! Please try again.");
             return false;
         }
 
@@ -145,7 +145,7 @@ public final class InventoryClickListener implements Listener {
         OfflinePlayer target = Bukkit.getServer().getOfflinePlayer(uuid);
 
         if (target.getName() == null) {
-            player.sendMessage(Component.text("§cAn error occurred while fetching playerdata! Are you sure this is a real player?"));
+            player.sendMessage(ChatColor.RED + "An error occurred while fetching playerdata! Are you sure this is a real player?");
             return;
         }
 
@@ -174,7 +174,7 @@ public final class InventoryClickListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "reviveBeaconAlreadyInUse",
-                    "&cThis revive beacon is already in use! Please wait until the current revive is finished."
+                    "<red>This revive beacon is already in use! Please wait until the current revive is finished."
             ));
             return;
         }
@@ -186,7 +186,7 @@ public final class InventoryClickListener implements Listener {
         OfflinePlayer target = Bukkit.getServer().getOfflinePlayer(uuid);
 
         if (target.getName() == null) {
-            player.sendMessage(Component.text("§cAn error occurred while fetching playerdata! Are you sure this is a real player?"));
+            player.sendMessage(ChatColor.RED + "An error occurred while fetching playerdata! Are you sure this is a real player?");
             return;
         }
 
@@ -196,7 +196,7 @@ public final class InventoryClickListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "alreadyRevivingPlayer",
-                    "&cThis player is already being revived by another beacon! Please wait until the current revive is finished."
+                    "<red>This player is already being revived by another beacon! Please wait until the current revive is finished."
             ));
             player.playSound(player.getLocation(), Sound.ENTITY_VILLAGER_NO, 1.0f, 1.0f);
             player.closeInventory();
@@ -221,7 +221,7 @@ public final class InventoryClickListener implements Listener {
             reviver.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "reviveMaxReached",
-                    "&cThis player has already been revived %amount% times!",
+                    "<red>This player has already been revived %amount% times!",
                     new MessageUtils.Replaceable("%amount%", String.valueOf(data.getHasBeenRevived()))
             ));
             return false;
@@ -231,7 +231,7 @@ public final class InventoryClickListener implements Listener {
             reviver.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "onlyReviveElimPlayers",
-                    "&cYou can only revive eliminated players!"
+                    "<red>You can only revive eliminated players!"
             ));
             return false;
         }
@@ -261,7 +261,7 @@ public final class InventoryClickListener implements Listener {
         reviver.sendMessage(MessageUtils.getAndFormatMsg(
                 true,
                 "reviveSuccess",
-                "&7You successfully revived &c%player%&7!",
+                "<gray>You successfully revived <red>%player%<gray>!",
                 new MessageUtils.Replaceable("%player%", target.getName())
         ));
         reviver.playSound(reviver.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 500.0f, 1.0f);
@@ -324,7 +324,7 @@ public final class InventoryClickListener implements Listener {
         reviver.sendMessage(MessageUtils.getAndFormatMsg(
                 true,
                 "reviveBeaconStart",
-                "&c%player% &7will be revived in &c%seconds% seconds&7! Please wait...",
+                "<red>%player% <gray>will be revived in <red>%seconds% seconds<gray>! Please wait...",
                 new MessageUtils.Replaceable("%player%", target.getName()),
                 new MessageUtils.Replaceable("%seconds%", String.valueOf(itemData.getReviveTime()))
         ));
@@ -405,12 +405,13 @@ public final class InventoryClickListener implements Listener {
      * @return The last line of lore as a String, or null if the lore is not available or too short.
      */
     private String getLastLineOfLore(ItemStack item, boolean bedrock) {
-        PlainTextComponentSerializer plainSerializer = PlainTextComponentSerializer.plainText();
-        List<Component> lore = item.lore();
-        if (lore == null || lore.size() < (bedrock ? 2 : 1)) return null;
-        int line = bedrock ? 2 : 1;
-        Component lastLore = lore.get(lore.size() - line);
-        return plainSerializer.serialize(lastLore);
+        ItemMeta meta = item.getItemMeta();
+        if (meta == null) return null;
+
+        if (!meta.hasLore()) return null;
+
+        List<String> lore = meta.getLore();
+        return lore.getLast();
     }
 
     /**

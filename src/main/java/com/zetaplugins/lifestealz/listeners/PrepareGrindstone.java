@@ -16,7 +16,8 @@ public final class PrepareGrindstone implements Listener {
         ItemStack[] inputs = inventory.getContents();
 
         if (hasCustomItem(inputs)) {
-            inventory.setResult(null);
+            // TODO: Make sure this is the right slot id
+            inventory.setItem(2, null);
             event.setResult(null);
         }
     }

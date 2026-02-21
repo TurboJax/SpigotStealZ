@@ -1,20 +1,17 @@
 package com.zetaplugins.lifestealz.util.customitems;
 
-import io.papermc.paper.datacomponent.DataComponentTypes;
-import io.papermc.paper.datacomponent.item.CustomModelData;
-import net.kyori.adventure.text.Component;
+import com.zetaplugins.lifestealz.util.MessageUtils;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.components.CustomModelDataComponent;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
-import com.zetaplugins.lifestealz.util.MessageUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 
 import static com.zetaplugins.lifestealz.util.customitems.CustomItemManager.*;
 
@@ -48,15 +45,7 @@ public final class CustomItem {
 
     public CustomItem setName(String name) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.displayName(MessageUtils.formatMsg(name));
-        itemStack.setItemMeta(itemMeta);
-
-        return this;
-    }
-
-    public CustomItem setName(Component name) {
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        itemMeta.displayName(name);
+        itemMeta.setDisplayName(MessageUtils.formatMsg(name));
         itemStack.setItemMeta(itemMeta);
 
         return this;
@@ -135,11 +124,11 @@ public final class CustomItem {
 
     public CustomItem setLore(List<String> lore) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        List<Component> newLore = new ArrayList<>(lore.size());
+        List<String> newLore = new ArrayList<>(lore.size());
         for (String s : lore) {
             newLore.add(MessageUtils.formatMsg(s));
         }
-        itemMeta.lore(newLore);
+        itemMeta.setLore(newLore);
         itemStack.setItemMeta(itemMeta);
 
         return this;
@@ -147,9 +136,9 @@ public final class CustomItem {
 
     public CustomItem addLore(String lore) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        List<Component> newLore = new ArrayList<>(Objects.requireNonNull(itemMeta.lore()));
+        List<String> newLore = new ArrayList<>(Objects.requireNonNull(itemMeta.getLore()));
         newLore.add(MessageUtils.formatMsg(lore));
-        itemMeta.lore(newLore);
+        itemMeta.setLore(newLore);
         itemStack.setItemMeta(itemMeta);
 
         return this;
@@ -162,13 +151,13 @@ public final class CustomItem {
      * @return The current CustomItem instance for method chaining.
      */
     public CustomItem setId(String stringId, int intId) {
-        var customModelDataBuilder = CustomModelData.customModelData().addString(stringId);
-        if (intId != 0) customModelDataBuilder.addFloat(intId);
+        ItemMeta meta = itemStack.getItemMeta();
+        CustomModelDataComponent cmd = meta.getCustomModelDataComponent();
+        cmd.setStrings(List.of(stringId));
+        cmd.setFloats(List.of((float) intId));
 
-        itemStack.setData(
-                DataComponentTypes.CUSTOM_MODEL_DATA,
-                customModelDataBuilder.build()
-        );
+        meta.setCustomModelDataComponent(cmd);
+
         return this;
     }
 

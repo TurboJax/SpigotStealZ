@@ -1,11 +1,10 @@
 package com.zetaplugins.lifestealz.util;
 
-import net.kyori.adventure.text.Component;
-import net.kyori.adventure.text.minimessage.MiniMessage;
 import com.zetaplugins.lifestealz.LifeStealZ;
-
 import java.util.HashMap;
 import java.util.Map;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 public final class MessageUtils {
     private MessageUtils() {}
@@ -45,7 +44,7 @@ public final class MessageUtils {
      * @param replaceables The placeholders to replace
      * @return The formatted message
      */
-    public static Component formatMsg(String msg, Replaceable... replaceables) {
+    public static String formatMsg(String msg, Replaceable... replaceables) {
         for (Replaceable replaceable : replaceables) {
             msg = msg.replace(replaceable.getPlaceholder(), replaceable.getValue());
         }
@@ -55,7 +54,10 @@ public final class MessageUtils {
         }
 
         MiniMessage mm = MiniMessage.miniMessage();
-        return mm.deserialize("<!i>" + msg);
+        // TODO: Test if this works
+        // TODO: See if we can remove all minimessage components and just go with legacy strings
+        LegacyComponentSerializer legacySerializer = LegacyComponentSerializer.legacySection();
+        return legacySerializer.serialize(mm.deserialize(msg));
     }
 
     /**
@@ -67,12 +69,12 @@ public final class MessageUtils {
      * @param replaceables The placeholders to replace
      * @return The formatted message
      */
-    public static Component getAndFormatMsg(boolean addPrefix, String path, String fallback, Replaceable... replaceables) {
+    public static String getAndFormatMsg(boolean addPrefix, String path, String fallback, Replaceable... replaceables) {
         if (path.startsWith("messages.")) path = path.substring("messages.".length());
 
         MiniMessage mm = MiniMessage.miniMessage();
         String msg = "<!i>" + LifeStealZ.getInstance().getLanguageManager().getString(path, fallback);
-        String prefix = LifeStealZ.getInstance().getLanguageManager().getString("prefix", "&8[&cLifeStealZ&8]");
+        String prefix = LifeStealZ.getInstance().getLanguageManager().getString("prefix", "<dark_gray>[<red>LifeStealZ<dark_gray>]");
         msg = (!prefix.isEmpty() && addPrefix) ? prefix + " " + msg : msg;
 
         for (Replaceable replaceable : replaceables) {
@@ -83,7 +85,10 @@ public final class MessageUtils {
             msg = msg.replace(entry.getKey(), entry.getValue());
         }
 
-        return mm.deserialize(msg);
+        // TODO: Test if this works
+        // TODO: See if we can remove all minimessage components and just go with legacy strings
+        LegacyComponentSerializer legacySerializer = LegacyComponentSerializer.legacySection();
+        return legacySerializer.serialize(mm.deserialize(msg));
     }
 
     public static String formatTime(long seconds) {

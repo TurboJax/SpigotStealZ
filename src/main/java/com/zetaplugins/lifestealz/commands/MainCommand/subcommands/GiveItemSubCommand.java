@@ -38,7 +38,7 @@ public final class GiveItemSubCommand implements SubCommand {
         List<Player> targetPlayers = parsePlayerName(args[1], true, plugin);
 
         if (targetPlayers.isEmpty()) {
-            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "&cPlayer not found!"));
+            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "<red>Player not found!"));
             return false;
         }
 
@@ -67,7 +67,7 @@ public final class GiveItemSubCommand implements SubCommand {
 
         for (Player targetPlayer : targetPlayers) {
             if (targetPlayer == null && targetPlayers.size() == 1) {
-                sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "&cPlayer not found!"));
+                sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "<red>Player not found!"));
                 return false;
             }
 
@@ -87,7 +87,7 @@ public final class GiveItemSubCommand implements SubCommand {
             if (!silent)
                 targetPlayer.sendMessage(MessageUtils.getAndFormatMsg(
                         true,
-                        "giveItem", "&7You received &c%amount% &7%item%!",
+                        "giveItem", "<gray>You received <red>%amount% <gray>%item%!",
                         new MessageUtils.Replaceable("%amount%", amount + ""),
                         new MessageUtils.Replaceable("%item%", CustomItemManager.getCustomItemData(item).getName())
                 ));

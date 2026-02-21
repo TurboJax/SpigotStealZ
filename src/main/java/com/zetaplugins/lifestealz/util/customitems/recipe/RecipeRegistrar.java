@@ -123,7 +123,7 @@ final class RecipeRegistrar {
         }
 
         if (getItemIds().contains(material.toLowerCase())) {
-            recipe.setIngredient(key.charAt(0), CustomItemManager.createCustomItem(material));
+            recipe.setIngredient(key.charAt(0), new RecipeChoice.ExactChoice(CustomItemManager.createCustomItem(material)));
             return;
         }
 

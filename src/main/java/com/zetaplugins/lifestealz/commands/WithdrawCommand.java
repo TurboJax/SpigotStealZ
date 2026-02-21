@@ -1,7 +1,6 @@
 package com.zetaplugins.lifestealz.commands;
 
 import com.zetaplugins.zetacore.annotations.AutoRegisterCommand;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -9,7 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,7 +32,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "needToBePlayer",
-                    "&cYou need to be a player to execute this command!"
+                    "<red>You need to be a player to execute this command!"
             ));
             return false;
         }
@@ -45,7 +43,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "gracePeriodWithdraw",
-                    "&cYou cannot withdraw hearts while in the grace period!"
+                    "<red>You cannot withdraw hearts while in the grace period!"
             ));
             return false;
         }
@@ -57,7 +55,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "usageError",
-                    "&cUsage: %usage%",
+                    "<red>Usage: %usage%",
                     new MessageUtils.Replaceable("%usage%", "/withdrawheart <amount> [confirm]")
             ));
             return false;
@@ -73,7 +71,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "withdrawMin",
-                    "&cYou can't withdraw less than 1 heart!"
+                    "<red>You can't withdraw less than 1 heart!"
             ));
             return false;
         }
@@ -97,7 +95,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(MessageUtils.getAndFormatMsg(
                     false,
                     "noInventorySpace",
-                    "&cYou don't have enough inventory space to withdraw that many hearts!"
+                    "<red>You don't have enough inventory space to withdraw that many hearts!"
             ));
             return false;
         }
@@ -110,13 +108,13 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
                 sender.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noWithdraw",
-                        "&cYou would be eliminated if you withdraw a heart!"
+                        "<red>You would be eliminated if you withdraw a heart!"
                 ));
                 if (withdrawtoDeath)
                     sender.sendMessage(MessageUtils.getAndFormatMsg(
                             false,
                             "withdrawConfirmmsg",
-                            "&8&oUse <underlined><click:SUGGEST_COMMAND:/withdrawheart %amount% confirm>/withdrawheart %amount% confirm</click></underlined> if you really want to withdraw a heart",
+                            "<dark_gray><i>Use <underlined><click:SUGGEST_COMMAND:/withdrawheart %amount% confirm>/withdrawheart %amount% confirm</click></underlined> if you really want to withdraw a heart",
                             new MessageUtils.Replaceable("%amount%", withdrawHearts + "")
                     ));
                 return false;
@@ -126,7 +124,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
                 sender.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "noWithdraw",
-                        "&cYou would be eliminated if you withdraw a heart!"
+                        "<red>You would be eliminated if you withdraw a heart!"
                 ));
                 return false;
             }
@@ -138,21 +136,21 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
             playerdata.setMaxHealth(0.0);
             plugin.getStorage().save(playerdata);
 
-            Component kickmsg = MessageUtils.getAndFormatMsg(
+            String kickmsg = MessageUtils.getAndFormatMsg(
                     false,
                     "eliminatedjoin",
-                    "&cYou don't have any hearts left!"
+                    "<red>You don't have any hearts left!"
             );
-            player.kick(kickmsg, PlayerKickEvent.Cause.BANNED);
+            player.kickPlayer(kickmsg);
 
             if (plugin.getConfig().getBoolean("announceElimination")) {
-                Component elimAnnouncementMsg = MessageUtils.getAndFormatMsg(
+                String elimAnnouncementMsg = MessageUtils.getAndFormatMsg(
                         true,
                         "eliminateionAnnouncementNature",
-                        "&c%player% &7has been eliminated!",
+                        "<red>%player% <gray>has been eliminated!",
                         new MessageUtils.Replaceable("%player%", player.getName())
                 );
-                Bukkit.broadcast(elimAnnouncementMsg);
+                Bukkit.broadcastMessage(elimAnnouncementMsg);
             }
 
             return false;

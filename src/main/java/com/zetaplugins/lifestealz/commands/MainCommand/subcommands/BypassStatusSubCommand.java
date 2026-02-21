@@ -33,7 +33,7 @@ public final class BypassStatusSubCommand implements SubCommand {
         List<OfflinePlayer> targetPlayers = parseOfflinePlayer(args[1], true, true, plugin);
 
         if (targetPlayers.isEmpty()) {
-            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "&cPlayer not found!"));
+            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "<red>Player not found!"));
             return false;
         }
 
@@ -45,7 +45,7 @@ public final class BypassStatusSubCommand implements SubCommand {
                 MessageUtils.getAndFormatMsg(
                     true,
                     "bypassStatusActive",
-                    "&7Bypass permission is &aactive &7for %player%",
+                    "<gray>Bypass permission is <green>active <gray>for %player%",
                     new MessageUtils.Replaceable("%player%", targetPlayer.getName())
                 )
             );
@@ -54,7 +54,7 @@ public final class BypassStatusSubCommand implements SubCommand {
                 MessageUtils.getAndFormatMsg(
                     true,
                     "bypassStatusInactive",
-                    "&7Bypass permission is &cinactive &7for %player%.",
+                    "<gray>Bypass permission is <red>inactive <gray>for %player%.",
                     new MessageUtils.Replaceable("%player%", targetPlayer.getName())
                 )
             );

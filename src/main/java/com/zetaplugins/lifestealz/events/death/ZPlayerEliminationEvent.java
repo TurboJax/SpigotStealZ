@@ -4,7 +4,6 @@ import com.zetaplugins.lifestealz.events.ZPlayerDeathEventBase;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import lombok.Getter;
 import lombok.Setter;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
@@ -22,10 +21,10 @@ public class ZPlayerEliminationEvent extends ZPlayerDeathEventBase {
     private boolean shouldAnnounceElimination;
     
     @Getter @Setter
-    private Component eliminationMessage;
+    private String eliminationMessage;
 
     @Getter @Setter
-    private Component kickMessage;
+    private String kickMessage;
 
     public ZPlayerEliminationEvent(PlayerDeathEvent originalEvent, Player killer) {
         super(originalEvent);
@@ -36,7 +35,7 @@ public class ZPlayerEliminationEvent extends ZPlayerDeathEventBase {
         this.kickMessage = MessageUtils.getAndFormatMsg(
                 false,
                 "eliminatedJoin",
-                "&cYou don't have any hearts left!"
+                "<red>You don't have any hearts left!"
         );
     }
 }

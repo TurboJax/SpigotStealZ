@@ -1,14 +1,12 @@
 package com.zetaplugins.lifestealz.commands;
 
 import com.zetaplugins.zetacore.annotations.AutoRegisterCommand;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -54,16 +52,16 @@ public final class EliminateCommand implements CommandExecutor, TabCompleter {
 
         dropPlayerInventory(targetPlayer);
 
-        Component kickmsg = MessageUtils.getAndFormatMsg(false, "eliminatedjoin", "&cYou don't have any hearts left!");
-        targetPlayer.kick(kickmsg, PlayerKickEvent.Cause.BANNED);
+        String kickmsg = MessageUtils.getAndFormatMsg(false, "eliminatedjoin", "<red>You don't have any hearts left!");
+        targetPlayer.kickPlayer(kickmsg);
 
-        sender.sendMessage(MessageUtils.getAndFormatMsg(true, "eliminateSuc", "&7You successfully eliminated &c%player%&7!",
+        sender.sendMessage(MessageUtils.getAndFormatMsg(true, "eliminateSuc", "<gray>You successfully eliminated <red>%player%<gray>!",
                 new MessageUtils.Replaceable("%player%", targetPlayer.getName())));
 
         if (plugin.getConfig().getBoolean("announceElimination")) {
-            Component elimAnnouncementMsg = MessageUtils.getAndFormatMsg(true, "eliminateionAnnouncementNature", "&c%player% &7has been eliminated!",
+            String elimAnnouncementMsg = MessageUtils.getAndFormatMsg(true, "eliminateionAnnouncementNature", "<red>%player% <gray>has been eliminated!",
                     new MessageUtils.Replaceable("%player%", targetPlayer.getName()));
-            Bukkit.broadcast(elimAnnouncementMsg);
+            Bukkit.broadcastMessage(elimAnnouncementMsg);
         }
 
         plugin.getEliminatedPlayersCache().addEliminatedPlayer(targetPlayer.getName());
@@ -79,7 +77,7 @@ public final class EliminateCommand implements CommandExecutor, TabCompleter {
     }
 
     private void throwUsageError(CommandSender sender) {
-        Component usageMessage = MessageUtils.getAndFormatMsg(false, "usageError", "&cUsage: %usage%", new MessageUtils.Replaceable("%usage%", "/eliminate <player>"));
+        String usageMessage = MessageUtils.getAndFormatMsg(false, "usageError", "<red>Usage: %usage%", new MessageUtils.Replaceable("%usage%", "/eliminate <player>"));
         sender.sendMessage(usageMessage);
     }
 

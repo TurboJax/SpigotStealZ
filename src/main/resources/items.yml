@@ -5,10 +5,10 @@
 
 defaultheart: # <- This is the item id that can be used in recipes and for permissions
   # This is the name of the item that is displayed in the inventory
-  name: "&cHeart"
+  name: "<red>Heart"
   # The lore is the description of the item that is displayed in the inventory
   lore:
-    - "&7Rightclick to use"
+    - "<gray>Rightclick to use"
   #  - "This would be a second line"
   #  - "And this possibly a third line"
   # The material is the item that is displayed in the inventory (Find all materials here: https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
@@ -72,9 +72,9 @@ defaultheart: # <- This is the item id that can be used in recipes and for permi
     pitch: 1.0
 
 revive:
-  name: "&cRevive Beacon"
+  name: "<red>Revive Beacon"
   lore:
-    - "&7Place down to use"
+    - "<gray>Place down to use"
   # The material has to be a beacon if customItemType is "revivebeacon"
   material: "BEACON"
   enchanted: true

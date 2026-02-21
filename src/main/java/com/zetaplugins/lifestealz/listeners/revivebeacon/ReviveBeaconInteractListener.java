@@ -39,7 +39,7 @@ public final class ReviveBeaconInteractListener implements Listener {
             player.sendMessage(MessageUtils.getAndFormatMsg(
                     true,
                     "beaconInUseInteract",
-                    "&7There is already a revive process in progress. Time left: &c%timeLeft% seconds&7.",
+                    "<gray>There is already a revive process in progress. Time left: <red>%timeLeft% seconds<gray>.",
                     new MessageUtils.Replaceable("%timeLeft%", String.valueOf(secondsLeft))
             ));
             return;

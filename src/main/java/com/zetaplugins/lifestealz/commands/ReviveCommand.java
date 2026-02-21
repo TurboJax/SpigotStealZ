@@ -54,13 +54,13 @@ public final class ReviveCommand implements CommandExecutor, TabCompleter {
             );
             plugin.getEliminatedPlayersCache().reloadCache();
             sender.sendMessage(MessageUtils.getAndFormatMsg(true, "massReviveSuccess",
-                    "&7You successfully revived &c%amount% &7player(s)!",
+                    "<gray>You successfully revived <red>%amount% <gray>player(s)!",
                     new MessageUtils.Replaceable("%amount%", Integer.toString(revivedPlayers))
             ));
             return true;
         } catch (Exception e) {
             sender.sendMessage(MessageUtils.getAndFormatMsg(false, "massReviveError",
-                    "&cAn error occurred while reviving all players: %error%",
+                    "<red>An error occurred while reviving all players: %error%",
                     new MessageUtils.Replaceable("%error%", e.getMessage())
             ));
             plugin.getLogger().severe("An error occurred while reviving all players: " + e.getMessage());
@@ -73,7 +73,7 @@ public final class ReviveCommand implements CommandExecutor, TabCompleter {
         PlayerData playerData = plugin.getStorage().load(targetPlayer.getUniqueId());
 
         if (playerData == null) {
-            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "noPlayerData", "&cThis player has not played on this server yet!"));
+            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "noPlayerData", "<red>This player has not played on this server yet!"));
             return false;
         }
 
@@ -82,21 +82,21 @@ public final class ReviveCommand implements CommandExecutor, TabCompleter {
         // Check if the player has reached the revive limit or has the bypass permission
         if (!canRevive(sender, playerData, bypassOption)) {
             sender.sendMessage(MessageUtils.getAndFormatMsg(false, "reviveMaxReached",
-                    "&cThis player has already been revived %amount% times!",
+                    "<red>This player has already been revived %amount% times!",
                     new MessageUtils.Replaceable("%amount%", Integer.toString(playerData.getHasBeenRevived()))));
             return false;
         }
 
         // Check if the player is eliminated
         if (!isEligibleForRevive(sender, playerData)) {
-            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "onlyReviveElimPlayers","&cYou can only revive eliminated players!"));
+            sender.sendMessage(MessageUtils.getAndFormatMsg(false, "onlyReviveElimPlayers","<red>You can only revive eliminated players!"));
             return false;
         }
 
         revivePlayer(sender, targetPlayer.getName(), playerData);
 
         sender.sendMessage(MessageUtils.getAndFormatMsg(true, "reviveSuccess",
-                "&7You successfully revived &c%player%&7!",
+                "<gray>You successfully revived <red>%player%<gray>!",
                 new MessageUtils.Replaceable("%player%", targetPlayer.getName())));
 
         return true;
@@ -149,8 +149,8 @@ public final class ReviveCommand implements CommandExecutor, TabCompleter {
      * @param sender The command sender
      */
     private void throwUsageError(CommandSender sender) {
-        Component usageMessage = MessageUtils.getAndFormatMsg(false, "usageError",
-                "&cUsage: %usage%", new MessageUtils.Replaceable("%usage%", "/revive <player>"));
+        String usageMessage = MessageUtils.getAndFormatMsg(false, "usageError",
+                "<red>Usage: %usage%", new MessageUtils.Replaceable("%usage%", "/revive <player>"));
         sender.sendMessage(usageMessage);
     }
 

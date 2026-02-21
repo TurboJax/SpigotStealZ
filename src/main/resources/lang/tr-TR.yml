@@ -1,141 +1,141 @@
 ---
-prefix: "&8[&cLifeStealZ&8]"
+prefix: "<dark_gray>[<red>LifeStealZ<dark_gray>]"
 newVersionAvailable: |-
-  &7LifeStealZ'nin yeni bir sürümü mevcut!
-  &c<click:OPEN_URL:https://modrinth.com/plugin/lifestealz/versions>https://modrinth.com/plugin/lifestealz/versions</click>
-usageError: "&cKullanım: %usage%"
+  <gray>LifeStealZ'nin yeni bir sürümü mevcut!
+  <red><click:OPEN_URL:https://modrinth.com/plugin/lifestealz/versions>https://modrinth.com/plugin/lifestealz/versions</click>
+usageError: "<red>Kullanım: %usage%"
 noPermsError: "<red>Bu komutu kullanmaya yetkin yok!"
-needToBePlayer: "&cBu komutu kullanmak için bir oyuncu olmalısın!"
-playerNotFound: "&cOyuncu bulunamadı!"
-worldNotWhitelisted: "&cBu dünya LifeStealZ için whitelist’te değil!"
-specifyPlayerOrBePlayer: "&cYa bir oyuncu belirtmeli ya da kendin bir oyuncu olmalısın!"
-noPermissionError: "&cBunu kullanmak için yetkin yok!"
-noPlayerData: "&cBu oyuncu henüz bu sunucuda oynamadı!"
-eliminateSuccess: "&7Başarıyla &c%player%&7 adlı oyuncuyu eledin!"
-reviveSuccess: "&7Başarıyla &c%player%&7 adlı oyuncuyu canlandırdın!"
-massReviveSuccess: "&7Başarıyla &c%amount% &7oyuncuyu canlandırdın!"
-massReviveError: "&cTüm oyuncular canlandırılırken bir hata oluştu: %error%"
-reviveMaxReached: "&cBu oyuncu zaten %amount% kez canlandırıldı!"
-onlyReviveElimPlayers: "&cSadece elenen oyuncuları canlandırabilirsin!"
-reviveBossbarTitle: "&cCanlandırılıyor: &target& &7&l| &r&3&remainingH&:&remainingM&:&remainingS&
-  kaldı &7&l| &r&6X: &locationX& Y: &locationY& Z: &locationZ&"
-eliminatedJoin: "&cHiç kalbin kalmadı!"
-eliminationAnnouncement: "&c%player%&7, &c%killer% &7tarafından elendi!"
-eliminateionAnnouncementNature: "&c%player% &7elendi!"
-setHeartsConfirmSingle: "&7%player% &7adlı oyuncunun canı başarıyla &c%amount% &7kalp
+needToBePlayer: "<red>Bu komutu kullanmak için bir oyuncu olmalısın!"
+playerNotFound: "<red>Oyuncu bulunamadı!"
+worldNotWhitelisted: "<red>Bu dünya LifeStealZ için whitelist’te değil!"
+specifyPlayerOrBePlayer: "<red>Ya bir oyuncu belirtmeli ya da kendin bir oyuncu olmalısın!"
+noPermissionError: "<red>Bunu kullanmak için yetkin yok!"
+noPlayerData: "<red>Bu oyuncu henüz bu sunucuda oynamadı!"
+eliminateSuccess: "<gray>Başarıyla <red>%player%<gray> adlı oyuncuyu eledin!"
+reviveSuccess: "<gray>Başarıyla <red>%player%<gray> adlı oyuncuyu canlandırdın!"
+massReviveSuccess: "<gray>Başarıyla <red>%amount% <gray>oyuncuyu canlandırdın!"
+massReviveError: "<red>Tüm oyuncular canlandırılırken bir hata oluştu: %error%"
+reviveMaxReached: "<red>Bu oyuncu zaten %amount% kez canlandırıldı!"
+onlyReviveElimPlayers: "<red>Sadece elenen oyuncuları canlandırabilirsin!"
+reviveBossbarTitle: "<red>Canlandırılıyor: &target& <gray><b>| <reset><dark_aqua><reset>emainingH&:&remainingM&:&remainingS&
+  kaldı <gray><b>| <reset><gold>X: <b>ocationX& Y: <b>ocationY& Z: <b>ocationZ&"
+eliminatedJoin: "<red>Hiç kalbin kalmadı!"
+eliminationAnnouncement: "<red>%player%<gray>, <red>%killer% <gray>tarafından elendi!"
+eliminateionAnnouncementNature: "<red>%player% <gray>elendi!"
+setHeartsConfirmSingle: "<gray>%player% <gray>adlı oyuncunun canı başarıyla <red>%amount% <gray>kalp
   yapıldı"
-setHeartsConfirmMultiple: "&c%pamount% &7oyuncunun canı başarıyla &c%amount% &7kalp
+setHeartsConfirmMultiple: "<red>%pamount% <gray>oyuncunun canı başarıyla <red>%amount% <gray>kalp
   yapıldı"
-addHeartsConfirmSingle: "&c%player% &7adlı oyuncuya başarıyla &c%amount% &7kalp eklendi"
-addHeartsConfirmMultiple: "&c%pamount% &7oyuncuya başarıyla &c%amount% &7kalp eklendi"
-removeHeartsConfirmSingle: "&c%player% &7adlı oyuncudan başarıyla &c%amount% &7kalp
+addHeartsConfirmSingle: "<red>%player% <gray>adlı oyuncuya başarıyla <red>%amount% <gray>kalp eklendi"
+addHeartsConfirmMultiple: "<red>%pamount% <gray>oyuncuya başarıyla <red>%amount% <gray>kalp eklendi"
+removeHeartsConfirmSingle: "<red>%player% <gray>adlı oyuncudan başarıyla <red>%amount% <gray>kalp
   silindi"
-removeHeartsConfirmMultiple: "&c%pamount% &7oyuncudan başarıyla &c%amount% &7kalp
+removeHeartsConfirmMultiple: "<red>%pamount% <gray>oyuncudan başarıyla <red>%amount% <gray>kalp
   silindi"
-connotSetHeartsBelowOrToZero: "&cBir oyuncunun canını 0 veya altına düşüremezsin!"
-getHearts: "&c%player% &7şu anda &c%amount% &7kalbe sahip!"
-reloadMsg: "&7Eklenti başarıyla yeniden yüklendi!"
-versionMsg: "&7Kullandığın sürüm: <red>%version%"
+connotSetHeartsBelowOrToZero: "<red>Bir oyuncunun canını 0 veya altına düşüremezsin!"
+getHearts: "<red>%player% <gray>şu anda <red>%amount% <gray>kalbe sahip!"
+reloadMsg: "<gray>Eklenti başarıyla yeniden yüklendi!"
+versionMsg: "<gray>Kullandığın sürüm: <red>%version%"
 newVersionMsg: |2
 
-  &c<b><grey>></grey> LifeStealZ</b> <grey>v%version%</grey>
+  <red><b><grey>></grey> LifeStealZ</b> <grey>v%version%</grey>
 
-  &c <u><click:open_url:'https://wiki.lifestealz.com/'>Dokümantasyon</click></u>  &c<u><click:open_url:'https://strassburger.org/discord'>Discord Destek</click></u>
-noWithdraw: "&cBir kalp çekmen durumunda eleneceksin!"
-withdrawConfirmmsg: "&8&oGerçekten bir kalp çekmek istiyorsan <underlined><click:SUGGEST_COMMAND:/withdrawheart
+  <red> <u><click:open_url:'https://wiki.lifestealz.com/'>Dokümantasyon</click></u>  <red><u><click:open_url:'https://strassburger.org/discord'>Discord Destek</click></u>
+noWithdraw: "<red>Bir kalp çekmen durumunda eleneceksin!"
+withdrawConfirmmsg: "<dark_gray><i>Gerçekten bir kalp çekmek istiyorsan <underlined><click:SUGGEST_COMMAND:/withdrawheart
   %amount% confirm>/withdrawheart %amount% confirm</click></underlined> komutunu kullan\n"
-maxHeartLimitReached: "&cZaten %limit% kalp sınırına ulaştın!"
-closeBtn: "&cKapat"
-backBtn: "&cGeri"
-nextBtn: "&cİleri"
-reviveTitle: "&8Bir oyuncuyu canlandır"
-revivePlayerDesc: "&7Bu oyuncuyu canlandırmak için tıkla"
-viewheartsYou: "&7Şu anda &c%amount% &7kalbin var!"
-viewheartsOther: "&c%player% &7oyuncusunun şu anda &c%amount% &7kalbi var!"
-heartconsume: "&c%amount% &7kalp kazandın!"
-heartconsumeCooldown: "&cBaşka bir kalp kullanmadan önce beklemelisin!"
-recipeNotCraftable: "&cBu eşya üretilemez!"
-recipeNotFound: "&cBu tarif mevcut değil!"
-altKill: "&cLütfen yan hesaplarla kill alma! Bu deneme kaydedildi!"
-withdrawMin: "&c1 kalpten daha az çekemezsin!"
-noInventorySpace: "&cBu kadar kalbi çekmek için envanterinde yeterli alan yok!"
-giveItem: "&7%amount%x &c%item% &7aldın!"
-heartGainCooldown: "&cBaşka bir kalp kazanmadan önce beklemelisin!"
-exportData: "&7Oyuncu verileri başarıyla &c%file% &7dosyasına aktarıldı!"
-exportDataError: "&cVeriler dışa aktarılamadı! Detaylar için konsolu kontrol et!"
-exportingData: "&7Oyuncu verileri dışa aktarılıyor..."
-importData: "&7Oyuncu verileri başarıyla &c%file% &7dosyasından içe aktarıldı! &cHatasız
+maxHeartLimitReached: "<red>Zaten %limit% kalp sınırına ulaştın!"
+closeBtn: "<red>Kapat"
+backBtn: "<red>Geri"
+nextBtn: "<red>İleri"
+reviveTitle: "<dark_gray>Bir oyuncuyu canlandır"
+revivePlayerDesc: "<gray>Bu oyuncuyu canlandırmak için tıkla"
+viewheartsYou: "<gray>Şu anda <red>%amount% <gray>kalbin var!"
+viewheartsOther: "<red>%player% <gray>oyuncusunun şu anda <red>%amount% <gray>kalbi var!"
+heartconsume: "<red>%amount% <gray>kalp kazandın!"
+heartconsumeCooldown: "<red>Başka bir kalp kullanmadan önce beklemelisin!"
+recipeNotCraftable: "<red>Bu eşya üretilemez!"
+recipeNotFound: "<red>Bu tarif mevcut değil!"
+altKill: "<red>Lütfen yan hesaplarla kill alma! Bu deneme kaydedildi!"
+withdrawMin: "<red>1 kalpten daha az çekemezsin!"
+noInventorySpace: "<red>Bu kadar kalbi çekmek için envanterinde yeterli alan yok!"
+giveItem: "<gray>%amount%x <red>%item% <gray>aldın!"
+heartGainCooldown: "<red>Başka bir kalp kazanmadan önce beklemelisin!"
+exportData: "<gray>Oyuncu verileri başarıyla <red>%file% <gray>dosyasına aktarıldı!"
+exportDataError: "<red>Veriler dışa aktarılamadı! Detaylar için konsolu kontrol et!"
+exportingData: "<gray>Oyuncu verileri dışa aktarılıyor..."
+importData: "<gray>Oyuncu verileri başarıyla <red>%file% <gray>dosyasından içe aktarıldı! <red>Hatasız
   çalışması için lütfen sunucuyu yeniden başlat!"
-importDataError: "&cVeriler içe aktarılamadı! Detaylar için konsolu kontrol et!"
-importingData: "&7Oyuncu verileri içe aktarılıyor..."
+importDataError: "<red>Veriler içe aktarılamadı! Detaylar için konsolu kontrol et!"
+importingData: "<gray>Oyuncu verileri içe aktarılıyor..."
 unwhitelistedWorld: "\n<red><b><grey>></grey> Dünya Whitelist'i</b></red>\n\n<gray>Şu
-  anda <red><click:COPY_TO_CLIPBOARD:'&world&'><hover:show_text:'&7Panoya kopyala'>&world&</hover></click></red>
+  anda <red><click:COPY_TO_CLIPBOARD:'&world&'><hover:show_text:'<gray>Panoya kopyala'>&world&</hover></click></red>
   dünyasında oynuyorsun.\nBu dünya whitelist'te değil. LSZ burada aktif olmayacak.</gray>\n\n<red><u><click:open_url:'https://lsz.strassburger.dev/configuration/whitelist'>Dokümantasyon</click></u></red>
   \n<red><u><click:open_url:'https://strassburger.org/discord'>Destek Discord</click></u></red>
   \n<u><hover:show_text:'<gray>Yok saymak için: config dosyasında ''supressWhitelistMessage''
   ayarını <b>true</b> yap.</gray>'><red>Mesajı Gizle</red></hover></u>\n"
-itemFramesDisabled: "&cEşya çerçevelerine özel eşya koyamazsın!"
-itemMinHearts: "&cBu eşyayı kullanmak için en az &c%amount% &ckalbe sahip olmalısın!"
-itemMaxHearts: "&cBu eşya için maksimum kalp sınırına ulaştın!"
+itemFramesDisabled: "<red>Eşya çerçevelerine özel eşya koyamazsın!"
+itemMinHearts: "<red>Bu eşyayı kullanmak için en az <red>%amount% <red>kalbe sahip olmalısın!"
+itemMaxHearts: "<red>Bu eşya için maksimum kalp sınırına ulaştın!"
 webhookEliminationTitle: Oyuncu Elendi
 webhookElimination: "**%player%**, **%killer%** tarafından elendi!"
 webhookEliminationColor: ea3323
 webhookReviveTitle: Oyuncu canlandırıldı
 webhookRevive: "**%player%**, **%reviver%** tarafından canlandırıldı!"
 webhookReviveColor: b094ee
-gracePeriodEnd: "&7Dokunulmazlık süresi sona erdi!"
-noDamageInGracePeriod: "&cDokunulmazlık süresinde oyunculara vuramazsın!"
-noHeartUseInGracePeriod: "&cDokunulmazlık süresinde kalp kullanamazsın!"
-noHeartGainInGracePeriod: "&cDokunulmazlık süresinde kalp kazanamazsın!"
-noHeartGainFromPlayersInGracePeriod: "&cDokunulmazlık süresinde oyunculardan kalp
+gracePeriodEnd: "<gray>Dokunulmazlık süresi sona erdi!"
+noDamageInGracePeriod: "<red>Dokunulmazlık süresinde oyunculara vuramazsın!"
+noHeartUseInGracePeriod: "<red>Dokunulmazlık süresinde kalp kullanamazsın!"
+noHeartGainInGracePeriod: "<red>Dokunulmazlık süresinde kalp kazanamazsın!"
+noHeartGainFromPlayersInGracePeriod: "<red>Dokunulmazlık süresinde oyunculardan kalp
   kazanamazsın!"
-noHeartLossInGracePeriod: "&cDokunulmazlık süresinde kalp kaybedemezsin!"
-gracePeriodSkipSuccess: "&7Dokunulmazlık süresi başarıyla atlandı: &c%playerCount%
-  &7oyuncu."
-gracePeriodResetSuccess: "&7Dokunulmazlık süresi başarıyla sıfırlandı: &c%playerCount%
-  &7oyuncu."
-gracePeriodSkipSuccessOnePlayer: "&7Dokunulmazlık süresi başarıyla atlandı: &c%player%&7."
-gracePeriodResetSuccessOnePlayer: "&7Dokunulmazlık süresi başarıyla sıfırlandı: &c%player%&7."
-interactionNotAllowed: "&cBununla etkileşime giremezsin!"
-generatingDebugReport: "&7Hata ayıklama raporu oluşturuluyor..."
-debugReportUploaded: "&aHata ayıklama raporu yüklendi:"
-clickToOpenDebugReport: "&eHata ayıklama raporunu açmak için tıkla"
-failedToUploadDebugReport: "&cHata ayıklama raporu yüklenemedi. Lütfen daha sonra
+noHeartLossInGracePeriod: "<red>Dokunulmazlık süresinde kalp kaybedemezsin!"
+gracePeriodSkipSuccess: "<gray>Dokunulmazlık süresi başarıyla atlandı: <red>%playerCount%
+  <gray>oyuncu."
+gracePeriodResetSuccess: "<gray>Dokunulmazlık süresi başarıyla sıfırlandı: <red>%playerCount%
+  <gray>oyuncu."
+gracePeriodSkipSuccessOnePlayer: "<gray>Dokunulmazlık süresi başarıyla atlandı: <red>%player%<gray>."
+gracePeriodResetSuccessOnePlayer: "<gray>Dokunulmazlık süresi başarıyla sıfırlandı: <red>%player%<gray>."
+interactionNotAllowed: "<red>Bununla etkileşime giremezsin!"
+generatingDebugReport: "<gray>Hata ayıklama raporu oluşturuluyor..."
+debugReportUploaded: "<green>Hata ayıklama raporu yüklendi:"
+clickToOpenDebugReport: "<yellow>Hata ayıklama raporunu açmak için tıkla"
+failedToUploadDebugReport: "<red>Hata ayıklama raporu yüklenemedi. Lütfen daha sonra
   tekrar dene."
-errorWhileGeneratingDebugReport: "&cHata ayıklama raporu oluşturulurken bir hata oluştu!"
-recipeInventoryTitle: "&8Üretim Tarifi"
-reviveBeaconAlreadyInUse: "&cBu diriltme feneri zaten kullanımda! Lütfen mevcut diriltme
+errorWhileGeneratingDebugReport: "<red>Hata ayıklama raporu oluşturulurken bir hata oluştu!"
+recipeInventoryTitle: "<dark_gray>Üretim Tarifi"
+reviveBeaconAlreadyInUse: "<red>Bu diriltme feneri zaten kullanımda! Lütfen mevcut diriltme
   tamamlanana kadar bekle."
-reviveBeaconStart: "&c%player% &7oyuncusu &c%seconds% &7saniye içinde diriltilecek.
-  &7Lütfen bekle..."
-reviveBeaconBreak: "&7Diriltme fenerin &c%breaker% &7tarafından kırıldı, diriltme
+reviveBeaconStart: "<red>%player% <gray>oyuncusu <red>%seconds% <gray>saniye içinde diriltilecek.
+  <gray>Lütfen bekle..."
+reviveBeaconBreak: "<gray>Diriltme fenerin <red>%breaker% <gray>tarafından kırıldı, diriltme
   işlemi iptal edildi."
-beaconInUseInteract: "&7Zaten devam eden bir diriltme işlemi var. Kalan süre: &c%timeLeft%
-  saniye&7."
-alreadyRevivingPlayer: "&cBu oyuncu zaten başka bir fener tarafından diriltiliyor!
-  &7Lütfen mevcut diriltme tamamlanana kadar bekle."
-noReviveBeaconBreak: "&cKullanımdayken bir diriltme fenerini kıramazsın!"
-noItemUseInWorld: "&cBu eşyayı bu dünyada kullanamazsın!"
-bypassVictim: "&aKalplerin bypass yetkisi ile korunuyor!"
-bypassKiller: "&c%player% &7oyuncusunun bypass yetkisi aktif, kalp kazanılmadı!"
-noDamageWithBypass: "&cBypass yetkisine sahip oyunculara zarar veremezsin!"
-noHeartUseWithBypass: "&cBypass yetkisi varken kalp kullanamazsın!"
-bypassStatusActive: "&7Bypass yetkisi &aaktif &7→ &c%player%"
-bypassStatusInactive: "&7Bypass yetkisi &cinaktif &7→ &c%player%"
+beaconInUseInteract: "<gray>Zaten devam eden bir diriltme işlemi var. Kalan süre: <red>%timeLeft%
+  saniye<gray>."
+alreadyRevivingPlayer: "<red>Bu oyuncu zaten başka bir fener tarafından diriltiliyor!
+  <gray>Lütfen mevcut diriltme tamamlanana kadar bekle."
+noReviveBeaconBreak: "<red>Kullanımdayken bir diriltme fenerini kıramazsın!"
+noItemUseInWorld: "<red>Bu eşyayı bu dünyada kullanamazsın!"
+bypassVictim: "<green>Kalplerin bypass yetkisi ile korunuyor!"
+bypassKiller: "<red>%player% <gray>oyuncusunun bypass yetkisi aktif, kalp kazanılmadı!"
+noDamageWithBypass: "<red>Bypass yetkisine sahip oyunculara zarar veremezsin!"
+noHeartUseWithBypass: "<red>Bypass yetkisi varken kalp kullanamazsın!"
+bypassStatusActive: "<gray>Bypass yetkisi <green>aktif <gray>→ <red>%player%"
+bypassStatusInactive: "<gray>Bypass yetkisi <red>inaktif <gray>→ <red>%player%"
 debugUploadConfirm: |2
 
-   <#8b73f6>&lHata Ayıklama Raporu Yükleniyor&r
+   <#8b73f6><b>Hata Ayıklama Raporu Yükleniyor<reset>
 
-  &7 Hata ayıklama raporunu yüklemek istediğine emin misin? Bunu kabul ederek, <u><click:OPEN_URL:https://debug.zetaplugins.com/privacy>Gizlilik Sözleşmesi</click></u> &7'ni kabul etmiş olursun.
+  <gray> Hata ayıklama raporunu yüklemek istediğine emin misin? Bunu kabul ederek, <u><click:OPEN_URL:https://debug.zetaplugins.com/privacy>Gizlilik Sözleşmesi</click></u> <gray>'ni kabul etmiş olursun.
 
-   <#8b73f6><click:RUN_COMMAND:%command%>[Buraya Tıkla]</click> &r&8ya da bu komutu kullan: <u>%command%</u>
-debugFailedUpload: "&cHata ayıklama raporu yüklenemedi!"
+   <#8b73f6><click:RUN_COMMAND:%command%>[Buraya Tıkla]</click> <reset><dark_gray>ya da bu komutu kullan: <u>%command%</u>
+debugFailedUpload: "<red>Hata ayıklama raporu yüklenemedi!"
 debugUploadSuccess: |-
-  &8 [&a✔&8] &7Hata ayıklama raporu başarıyla yüklendi! Buradan görebilirsin:
+  <dark_gray> [<green>✔<dark_gray>] <gray>Hata ayıklama raporu başarıyla yüklendi! Buradan görebilirsin:
   <u><#8b73f6><click:OPEN_URL:%url%>%url%</click></u>
-debugFailedToCreateFile: "&cHata ayıklama raporu dosyası oluşturulamadı! &7Hata: %error%"
+debugFailedToCreateFile: "<red>Hata ayıklama raporu dosyası oluşturulamadı! <gray>Hata: %error%"
 debugFileCreated: |-
-  &8 [&a✔&8] &7Hata ayıklama verileri aşağıdaki dosyalara kaydedildi:
+  <dark_gray> [<green>✔<dark_gray>] <gray>Hata ayıklama verileri aşağıdaki dosyalara kaydedildi:
   <click:COPY_TO_CLIPBOARD:%jsonPath%><#8b73f6>%jsonPath%</click>
   <click:COPY_TO_CLIPBOARD:%txtPath%><#8b73f6>%txtPath%</click>
-gracePeriodWithdraw: "&cDokunulmazlık süresinde kalp çekemezsin!"
+gracePeriodWithdraw: "<red>Dokunulmazlık süresinde kalp çekemezsin!"

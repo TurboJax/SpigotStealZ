@@ -4,7 +4,7 @@ import com.zetaplugins.zetacore.annotations.AutoRegisterListener;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerAttemptPickupItemEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.inventory.ItemStack;
 import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.util.CooldownManager;
@@ -22,8 +22,8 @@ public final class PlayerItemPickupListener implements Listener {
     }
 
     @EventHandler
-    public void onItemPickup(PlayerAttemptPickupItemEvent event) {
-        Player player = event.getPlayer();
+    public void onItemPickup(EntityPickupItemEvent event) {
+        if (!(event.getEntity() instanceof Player player)) return;
         ItemStack itemStack = event.getItem().getItemStack();
 
         if (CustomItemManager.isForbiddenItem(itemStack)) {
@@ -53,7 +53,7 @@ public final class PlayerItemPickupListener implements Listener {
                 player.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "heartGainCooldown",
-                        "&cYou have to wait before gaining another heart!",
+                        "<red>You have to wait before gaining another heart!",
                         new MessageUtils.Replaceable("%time%", formatTime(timeLeft))
                 ));
                 CooldownManager.lastHeartPickupMessage.put(player.getUniqueId(), System.currentTimeMillis());

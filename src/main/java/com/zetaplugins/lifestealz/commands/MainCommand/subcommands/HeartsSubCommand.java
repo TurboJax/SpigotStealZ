@@ -1,10 +1,5 @@
 package com.zetaplugins.lifestealz.commands.MainCommand.subcommands;
 
-import net.kyori.adventure.text.Component;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
 import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.commands.SubCommand;
 import com.zetaplugins.lifestealz.util.MaxHeartsManager;
@@ -12,10 +7,13 @@ import com.zetaplugins.lifestealz.util.MessageUtils;
 import com.zetaplugins.lifestealz.util.commands.CommandUtils;
 import com.zetaplugins.lifestealz.storage.PlayerData;
 import com.zetaplugins.lifestealz.storage.Storage;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import static com.zetaplugins.lifestealz.util.commands.CommandUtils.*;
 
@@ -54,14 +52,14 @@ public final class HeartsSubCommand implements SubCommand {
             OfflinePlayer player = parseOfflinePlayer(args[2], false, true, plugin).get(0);
 
             if (player == null) {
-                sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "&cPlayer not found!"));
+                sender.sendMessage(MessageUtils.getAndFormatMsg(false, "playerNotFound", "<red>Player not found!"));
                 return false;
             }
 
             PlayerData playerData = plugin.getStorage().load(player.getUniqueId());
 
             int hearts = (int) (playerData.getMaxHealth() / 2);
-            sender.sendMessage(MessageUtils.getAndFormatMsg(true, "getHearts", "&c%player% &7currently has &c%amount% &7hearts!",
+            sender.sendMessage(MessageUtils.getAndFormatMsg(true, "getHearts", "<red>%player% <gray>currently has <red>%amount% <gray>hearts!",
                     new MessageUtils.Replaceable("%player%", player.getName()), new MessageUtils.Replaceable("%amount%", hearts + "")));
             return true;
         }
@@ -85,7 +83,7 @@ public final class HeartsSubCommand implements SubCommand {
                 sender.sendMessage(MessageUtils.getAndFormatMsg(
                         false,
                         "playerNotFound",
-                        "&cPlayer not found!"
+                        "<red>Player not found!"
                 ));
                 return false;
             }
@@ -120,7 +118,7 @@ public final class HeartsSubCommand implements SubCommand {
                         sender.sendMessage(MessageUtils.getAndFormatMsg(
                                 false,
                                 "connotSetHeartsBelowOrToZero",
-                                "&cYou can't set a player's hearts below or to 0!"
+                                "<red>You can't set a player's hearts below or to 0!"
                         ));
                         return false;
                     }
@@ -140,7 +138,7 @@ public final class HeartsSubCommand implements SubCommand {
                         sender.sendMessage(MessageUtils.getAndFormatMsg(
                                 false,
                                 "connotSetHeartsBelowOrToZero",
-                                "&cYou can't set a player's hearts below or to 0!"
+                                "<red>You can't set a player's hearts below or to 0!"
                         ));
                         return false;
                     }
@@ -174,30 +172,30 @@ public final class HeartsSubCommand implements SubCommand {
             case "add":
                 messageKey = targetPlayers.size() == 1 ? "addHeartsConfirmSingle" : "addHeartsConfirmMultiple";
                 defaultMessage = targetPlayers.size() == 1
-                        ? "&7You successfully added &c%amount% &7hearts to &c%player%!"
-                        : "&7Successfully added &c%amount% &7hearts to &c%pamount% players";
+                        ? "<gray>You successfully added <red>%amount% <gray>hearts to <red>%player%!"
+                        : "<gray>Successfully added <red>%amount% <gray>hearts to <red>%pamount% players";
                 break;
             case "set":
                 messageKey = targetPlayers.size() == 1 ? "setHeartsConfirmSingle" : "setHeartsConfirmMultiple";
                 defaultMessage = targetPlayers.size() == 1
-                        ? "&7Successfully set &c%player%'s &7hearts to &c%amount% hearts"
-                        : "&7Successfully set &c%pamount% players' &7hearts to &c%amount% hearts";
+                        ? "<gray>Successfully set <red>%player%'s <gray>hearts to <red>%amount% hearts"
+                        : "<gray>Successfully set <red>%pamount% players' <gray>hearts to <red>%amount% hearts";
                 break;
             case "remove":
                 messageKey = targetPlayers.size() == 1 ? "removeHeartsConfirmSingle" : "removeHeartsConfirmMultiple";
                 defaultMessage = targetPlayers.size() == 1
-                        ? "&7Successfully removed &c%amount% &7hearts from &c%player%"
-                        : "&7Successfully removed &c%amount% &7hearts from &c%pamount% players";
+                        ? "<gray>Successfully removed <red>%amount% <gray>hearts from <red>%player%"
+                        : "<gray>Successfully removed <red>%amount% <gray>hearts from <red>%pamount% players";
                 break;
             default:
                 throw new IllegalArgumentException("Invalid option: " + optionTwo);
         }
 
-        Component confirmMessage = createConfirmMessage(messageKey, defaultMessage, replacements);
+        String confirmMessage = createConfirmMessage(messageKey, defaultMessage, replacements);
         sender.sendMessage(confirmMessage);
     }
 
-    private Component createConfirmMessage(String key, String defaultMessage, Map<String, String> replacements) {
+    private String createConfirmMessage(String key, String defaultMessage, Map<String, String> replacements) {
         MessageUtils.Replaceable[] replaceables = replacements.entrySet().stream()
                 .map(entry -> new MessageUtils.Replaceable(entry.getKey(), entry.getValue()))
                 .toArray(MessageUtils.Replaceable[]::new);
@@ -206,10 +204,10 @@ public final class HeartsSubCommand implements SubCommand {
     }
 
     private void sendHeartLimitReachedMessage(CommandSender sender, double maxHearts) {
-        Component maxHeartsMsg = MessageUtils.getAndFormatMsg(
+        String maxHeartsMsg = MessageUtils.getAndFormatMsg(
                 true,
                 "maxHeartLimitReached",
-                "&cYou already reached the limit of %limit% hearts!",
+                "<red>You already reached the limit of %limit% hearts!",
                 new MessageUtils.Replaceable("%limit%", (int)(maxHearts / 2) + ""));
         sender.sendMessage(maxHeartsMsg);
     }

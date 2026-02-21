@@ -1,7 +1,6 @@
 package com.zetaplugins.lifestealz.listeners;
 
 import com.zetaplugins.zetacore.annotations.AutoRegisterListener;
-import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -52,7 +51,7 @@ public final class PlayerLoginListener implements Listener {
 
     private void kickPlayer(PlayerLoginEvent event) {
         event.setResult(PlayerLoginEvent.Result.KICK_OTHER);
-        Component kickmsg = MessageUtils.getAndFormatMsg(false, "eliminatedJoin", "&cYou don't have any hearts left!");
-        event.kickMessage(kickmsg);
+        String kickmsg = MessageUtils.getAndFormatMsg(false, "eliminatedJoin", "<red>You don't have any hearts left!");
+        event.setKickMessage(kickmsg);
     }
 }

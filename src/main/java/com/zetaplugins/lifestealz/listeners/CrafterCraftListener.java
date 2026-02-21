@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 public class CrafterCraftListener implements Listener {
     @EventHandler
     public void onCrafterCraft(CrafterCraftEvent event) {
-        if (event.getBlock().getState(false) instanceof final Crafter crafter) {
+        if (event.getBlock().getState() instanceof final Crafter crafter) {
             if (invHasCustomItem(crafter.getInventory())) {
                 event.setCancelled(true);
             }

@@ -257,7 +257,7 @@ public final class PlayerDeathListener implements Listener {
         eliminationEvent.setShouldAnnounceElimination(plugin.getConfig().getBoolean("announceElimination"));
 
         String messageKey = isDeathByPlayer ? "eliminationAnnouncement" : "eliminateionAnnouncementNature";
-        String defaultMessage = isDeathByPlayer ? "&c%player% &7has been eliminated by &c%killer%&7!" : "&c%player% &7has been eliminated!";
+        String defaultMessage = isDeathByPlayer ? "<red>%player% <gray>has been eliminated by <red>%killer%<gray>!" : "<red>%player% <gray>has been eliminated!";
         eliminationEvent.setEliminationMessage(MessageUtils.getAndFormatMsg(
                 false,
                 messageKey,
@@ -269,7 +269,7 @@ public final class PlayerDeathListener implements Listener {
         eliminationEvent.setKickMessage(MessageUtils.getAndFormatMsg(
                 false,
                 "eliminatedJoin",
-                "&cYou don't have any hearts left!"
+                "<red>You don't have any hearts left!"
         ));
 
         Bukkit.getPluginManager().callEvent(eliminationEvent);
@@ -326,13 +326,13 @@ public final class PlayerDeathListener implements Listener {
             // Kick the player
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                 if (player.isOnline()) { // Avoids trying to kick NPCs since they are not online
-                    player.kick(eliminationEvent.getKickMessage());
+                    player.kickPlayer(eliminationEvent.getKickMessage());
                 }
             }, 1L);
 
             // Announce elimination
             if (eliminationEvent.isShouldAnnounceElimination()) {
-                Bukkit.broadcast(eliminationEvent.getEliminationMessage());
+                Bukkit.broadcastMessage(eliminationEvent.getEliminationMessage());
                 event.setDeathMessage(null);
             }
 
