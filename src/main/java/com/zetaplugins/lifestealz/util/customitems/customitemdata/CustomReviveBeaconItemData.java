@@ -2,8 +2,6 @@ package com.zetaplugins.lifestealz.util.customitems.customitemdata;
 
 import org.bukkit.Material;
 import com.zetaplugins.lifestealz.util.customblocks.ParticleColor;
-import org.bukkit.boss.BarColor;
-import org.bukkit.boss.BarStyle;
 
 import java.util.Objects;
 

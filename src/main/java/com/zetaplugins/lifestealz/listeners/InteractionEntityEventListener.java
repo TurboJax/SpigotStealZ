@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.util.MessageUtils;
-import com.zetaplugins.lifestealz.util.customitems.CustomItemManager;
+import com.zetaplugins.lifestealz.util.customitems.CustomItemType;
 
 @AutoRegisterListener
 public final class InteractionEntityEventListener implements Listener {
@@ -33,8 +33,7 @@ public final class InteractionEntityEventListener implements Listener {
         boolean preventItemFrames = plugin.getConfig().getBoolean("preventCustomItemsInItemFrames");
 
         if (
-                preventItemFrames &&
-                        (CustomItemManager.isHeartItem(item) || CustomItemManager.isReviveItem(item))
+                preventItemFrames && (CustomItemType.HEART.is(item) || CustomItemType.REVIVE.is(item))
                 && targetEntity.getType().equals(EntityType.ITEM_FRAME)
         ) {
             event.setCancelled(true);

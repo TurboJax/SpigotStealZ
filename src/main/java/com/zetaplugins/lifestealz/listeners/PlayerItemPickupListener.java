@@ -10,6 +10,7 @@ import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.util.CooldownManager;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import com.zetaplugins.lifestealz.util.customitems.CustomItemManager;
+import com.zetaplugins.lifestealz.util.customitems.CustomItemType;
 
 import static com.zetaplugins.lifestealz.util.MessageUtils.formatTime;
 
@@ -36,7 +37,7 @@ public final class PlayerItemPickupListener implements Listener {
         long heartGainCooldown = plugin.getConfig().getLong("heartGainCooldown.cooldown");
         boolean heartGainCooldownPreventPickup = plugin.getConfig().getBoolean("heartGainCooldown.preventPickup");
 
-        if (!CustomItemManager.isHeartItem(itemStack)) return;
+        if (!CustomItemType.HEART.is(itemStack)) return;
 
         if (
                 heartGainCooldownEnabled && heartGainCooldownPreventPickup

@@ -1,6 +1,8 @@
 package com.zetaplugins.lifestealz.util.customitems.customitemdata;
 
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
+import org.bukkit.Registry;
 import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -130,7 +132,8 @@ public class CustomItemData {
         private CustomItemSoundData(String itemId) {
             FileConfiguration config = LifeStealZ.getInstance().getConfigManager().getCustomItemConfig();
             enabled = config.getBoolean(itemId + ".sound.enabled");
-            sound = Sound.valueOf(config.getString(itemId + ".sound.sound"));
+            NamespacedKey soundKey = NamespacedKey.fromString(config.getString(itemId + ".sound.sound"));
+            sound = Registry.SOUNDS.get(soundKey);
             volume = config.getDouble(itemId + ".sound.volume");
             pitch = config.getDouble(itemId + ".sound.pitch");
         }

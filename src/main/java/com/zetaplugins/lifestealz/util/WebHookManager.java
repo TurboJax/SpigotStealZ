@@ -4,6 +4,7 @@ import com.zetaplugins.lifestealz.LifeStealZ;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
@@ -28,7 +29,7 @@ public final class WebHookManager {
 
     public void sendWebhookMessage(String title, String message, String colorHex) {
         try {
-            URL url = new URL(getWebhookUrl());
+            URL url = URI.create(getWebhookUrl()).toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             // Set up the HTTP connection properties

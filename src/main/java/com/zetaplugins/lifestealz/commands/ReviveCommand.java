@@ -1,7 +1,6 @@
 package com.zetaplugins.lifestealz.commands;
 
 import com.zetaplugins.zetacore.annotations.AutoRegisterCommand;
-import net.kyori.adventure.text.Component;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

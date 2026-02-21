@@ -6,7 +6,6 @@ import com.zetaplugins.lifestealz.util.CooldownManager;
 import com.zetaplugins.lifestealz.util.GracePeriodManager;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import com.zetaplugins.lifestealz.util.WebHookManager;
-import com.zetaplugins.lifestealz.events.*;
 import com.zetaplugins.zetacore.annotations.AutoRegisterListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

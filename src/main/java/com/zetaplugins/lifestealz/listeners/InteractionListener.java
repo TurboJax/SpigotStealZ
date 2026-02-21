@@ -53,12 +53,9 @@ public final class InteractionListener implements Listener {
                 if (hand == null) return;
 
                 switch (hand) {
-                    case HAND:
-                        player.getInventory().setItem(player.getInventory().getHeldItemSlot(), new ItemStack(Material.AIR));
-                        break;
-                    case OFF_HAND:
-                        player.getInventory().setItem(40, new ItemStack(Material.AIR));
-                        break;
+                    case HAND -> player.getInventory().setItem(player.getInventory().getHeldItemSlot(), new ItemStack(Material.AIR));
+                    case OFF_HAND -> player.getInventory().setItem(40, new ItemStack(Material.AIR));
+                    default -> {}
                 }
             }
 

@@ -21,6 +21,7 @@ import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.util.commands.CommandUtils;
 import com.zetaplugins.lifestealz.util.customblocks.CustomBlock;
 import com.zetaplugins.lifestealz.util.customitems.CustomItemManager;
+import com.zetaplugins.lifestealz.util.customitems.CustomItemType;
 import com.zetaplugins.lifestealz.storage.PlayerData;
 import com.zetaplugins.lifestealz.util.customitems.customitemdata.CustomReviveBeaconItemData;
 
@@ -121,6 +122,7 @@ public final class InventoryClickListener implements Listener {
             case ARROW -> GuiManager.openReviveBeaconGui(player, getPageFromItem(item), plugin, beaconLocation);
             case PLAYER_HEAD -> handleBeaconReviveClick(item, player, false, beaconLocation);
             case SKELETON_SKULL -> handleBeaconReviveClick(item, player, true, beaconLocation);
+            default -> {}
         }
 
         return true;
@@ -421,7 +423,7 @@ public final class InventoryClickListener implements Listener {
      */
     private boolean hasReviveCrystal(Player player) {
         for (ItemStack item : player.getInventory().getContents()) {
-            if (item != null && CustomItemManager.isReviveItem(item)) return true;
+            if (item != null && CustomItemType.REVIVE.is(item)) return true;
         }
         return false;
     }
@@ -435,7 +437,7 @@ public final class InventoryClickListener implements Listener {
      */
     private void removeReviveCrystal(Player player) {
         for (ItemStack item : player.getInventory().getContents()) {
-            if (item != null && CustomItemManager.isReviveItem(item)) {
+            if (item != null && CustomItemType.REVIVE.is(item)) {
                 item.setAmount(item.getAmount() - 1);
                 return;
             }

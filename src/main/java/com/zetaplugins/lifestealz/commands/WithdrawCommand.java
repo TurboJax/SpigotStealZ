@@ -14,6 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import com.zetaplugins.lifestealz.LifeStealZ;
 import com.zetaplugins.lifestealz.util.MessageUtils;
 import com.zetaplugins.lifestealz.util.customitems.CustomItemManager;
+import com.zetaplugins.lifestealz.util.customitems.CustomItemType;
 import com.zetaplugins.lifestealz.storage.PlayerData;
 
 import java.util.List;
@@ -83,7 +84,7 @@ public final class WithdrawCommand implements CommandExecutor, TabCompleter {
         for (ItemStack item : contents) {
             if (item == null) {
                 availableSpace += 64;
-            } else if (CustomItemManager.isHeartItem(item)) {
+            } else if (CustomItemType.HEART.is(item)) {
                 availableSpace += (64 - item.getAmount());
             }
             if (availableSpace >= heartsToWithdraw) {
