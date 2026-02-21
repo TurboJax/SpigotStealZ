@@ -256,7 +256,7 @@ public abstract class SQLStorage extends Storage {
 
     @Override
     public String export(String fileName) {
-        String filePath = getPlugin().getDataFolder().getPath() + File.pathSeparator + fileName + ".csv";
+        String filePath = getPlugin().getDataFolder().getPath() + File.separatorChar + fileName + ".csv";
         try (Connection connection = getConnection()) {
             if (connection == null) return null;
 
@@ -292,7 +292,7 @@ public abstract class SQLStorage extends Storage {
 
     @Override
     public void importData(String fileName) {
-        String filePath = getPlugin().getDataFolder().getPath() + File.pathSeparator + fileName;
+        String filePath = getPlugin().getDataFolder().getPath() + File.separatorChar + fileName;
         long startTime = System.currentTimeMillis();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath));
