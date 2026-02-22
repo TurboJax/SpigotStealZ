@@ -80,7 +80,7 @@ public final class InteractionListener implements Listener {
     /**
      * Checks if the event should be cancelled when a player interacts with a respawn anchor
      * @param event PlayerInteractEvent
-     * @return wether the event needs to be cancelled
+     * @return whether the event needs to be cancelled
      */
     private boolean shouldCancelRespawnAnchorUsage(PlayerInteractEvent event) {
         if (event.getAction() != Action.RIGHT_CLICK_BLOCK || !plugin.getConfig().getBoolean("preventRespawnAnchors")) {

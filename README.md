@@ -296,7 +296,7 @@ antiAlt:
   preventKill: false
   # If a message should be sent to the player, when an alt kill attempt is detected
   sendMessage: false
-  # Add custom comamnds, to be executed when a possible alt kill attempt is detected
+  # Add custom commands, to be executed when a possible alt kill attempt is detected
   # You can use &player& to insert the player name (commands are executed for both players)
   commands:
   # - "say Please don't kill alts"
