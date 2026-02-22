@@ -62,11 +62,11 @@ public final class PlayerDeathListener implements Listener {
         // Handle anti-alt logic first
         if (handleAntiAltLogic(event, player, killer)) return;
 
-        boolean looseHeartsToNature = plugin.getConfig().getBoolean("looseHeartsToNature") || plugin.getConfig().getInt("heartsPerKill") <= 0;
-        boolean looseHeartsToPlayer = plugin.getConfig().getBoolean("looseHeartsToPlayer") || plugin.getConfig().getInt("heartsPerNaturalDeath") <= 0;
+        boolean loseHeartsToNature = plugin.getConfig().getBoolean("looseHeartsToNature") || plugin.getConfig().getInt("heartsPerKill") <= 0;
+        boolean loseHeartsToPlayer = plugin.getConfig().getBoolean("looseHeartsToPlayer") || plugin.getConfig().getInt("heartsPerNaturalDeath") <= 0;
 
         // Natural death or death by player
-        if ((!isDeathByPlayer && looseHeartsToNature) || (isDeathByPlayer && looseHeartsToPlayer)) {
+        if ((!isDeathByPlayer && loseHeartsToNature) || (isDeathByPlayer && loseHeartsToPlayer)) {
             handleHeartLoss(event, player, killer, playerData, isDeathByPlayer);
         }
     }
@@ -76,7 +76,7 @@ public final class PlayerDeathListener implements Listener {
 
         double healthPerKill = plugin.getConfig().getInt("heartsPerKill") * 2;
         double healthPerNaturalDeath = plugin.getConfig().getInt("heartsPerNaturalDeath") * 2;
-        double healthToLoose = isDeathByPlayer ? healthPerKill : healthPerNaturalDeath;
+        double healthTolose = isDeathByPlayer ? healthPerKill : healthPerNaturalDeath;
 
         // Check bypass first (takes priority over grace period)
         boolean victimHasBypass = restrictedHeartLossByBypass(player);
@@ -116,13 +116,13 @@ public final class PlayerDeathListener implements Listener {
 
         if (isDeathByPlayer && !killerInGracePeriod && !killerHasBypass) {
             
-            if (handleHeartGainCooldown(event, player, killer, healthToLoose)) {
+            if (handleHeartGainCooldown(event, player, killer, healthTolose)) {
                 preventKillerGain = true;
                 if (plugin.getConfig().getBoolean("heartGainCooldown.dropOnCooldown")) {
                     droppedAtKiller = true;
                 }
             }
-            if (handleMaxHeartsLimit(event, player, killer, healthToLoose)) {
+            if (handleMaxHeartsLimit(event, player, killer, healthTolose)) {
                 preventKillerGain = true;
                 if (plugin.getConfig().getBoolean("dropHeartsIfMax")) {
                     droppedAtKiller = true;
@@ -130,15 +130,15 @@ public final class PlayerDeathListener implements Listener {
             }
         }
 
-        if (playerData.getMaxHealth() - healthToLoose <= minHearts) {
-            handleElimination(event, player, playerData, killer, isDeathByPlayer, healthToLoose, preventKillerGain, droppedAtKiller);
+        if (playerData.getMaxHealth() - healthTolose <= minHearts) {
+            handleElimination(event, player, playerData, killer, isDeathByPlayer, healthTolose, preventKillerGain, droppedAtKiller);
             return;
         }
 
         if (isDeathByPlayer) {
-            handlePvPDeath(event, player, killer, playerData, healthToLoose, preventKillerGain, droppedAtKiller);
+            handlePvPDeath(event, player, killer, playerData, healthTolose, preventKillerGain, droppedAtKiller);
         } else {
-            handleNaturalDeath(event, player, playerData, healthToLoose);
+            handleNaturalDeath(event, player, playerData, healthTolose);
         }
     }
 
@@ -191,10 +191,10 @@ public final class PlayerDeathListener implements Listener {
         return false;
     }
 
-    private void handlePvPDeath(PlayerDeathEvent event, Player player, Player killer, PlayerData playerData, double healthToLoose, boolean preventKillerGain, boolean droppedAtKiller) {
-        double healthToGain = healthToLoose;
+    private void handlePvPDeath(PlayerDeathEvent event, Player player, Player killer, PlayerData playerData, double healthTolose, boolean preventKillerGain, boolean droppedAtKiller) {
+        double healthToGain = healthTolose;
 
-        ZPlayerPvPDeathEvent pvpEvent = new ZPlayerPvPDeathEvent(event, killer, healthToLoose, healthToGain);
+        ZPlayerPvPDeathEvent pvpEvent = new ZPlayerPvPDeathEvent(event, killer, healthTolose, healthToGain);
 
         boolean shouldDropFromPvP = plugin.getConfig().getBoolean("dropHeartsPlayer") && !droppedAtKiller;
         pvpEvent.setShouldDropHearts(shouldDropFromPvP);
@@ -224,9 +224,9 @@ public final class PlayerDeathListener implements Listener {
         }
     }
 
-    private void handleNaturalDeath(PlayerDeathEvent event, Player player, PlayerData playerData, double healthToLoose) {
+    private void handleNaturalDeath(PlayerDeathEvent event, Player player, PlayerData playerData, double healthTolose) {
         ZPlayerNaturalDeathEvent naturalEvent =
-                new ZPlayerNaturalDeathEvent(event, healthToLoose);
+                new ZPlayerNaturalDeathEvent(event, healthTolose);
         naturalEvent.setShouldDropHearts(plugin.getConfig().getBoolean("dropHeartsNatural"));
         Bukkit.getPluginManager().callEvent(naturalEvent);
 
@@ -250,7 +250,7 @@ public final class PlayerDeathListener implements Listener {
         }
     }
 
-    private void handleElimination(PlayerDeathEvent event, Player player, PlayerData playerData, Player killer, boolean isDeathByPlayer, double healthToLoose, boolean preventKillerGain, boolean droppedAtKiller) {
+    private void handleElimination(PlayerDeathEvent event, Player player, PlayerData playerData, Player killer, boolean isDeathByPlayer, double healthTolose, boolean preventKillerGain, boolean droppedAtKiller) {
         ZPlayerEliminationEvent eliminationEvent =
                 new ZPlayerEliminationEvent(event, killer);
         eliminationEvent.setShouldBanPlayer(!plugin.getConfig().getBoolean("disablePlayerBanOnElimination"));
@@ -292,24 +292,24 @@ public final class PlayerDeathListener implements Listener {
                 if (isDeathByPlayer && killer != null) {
                     boolean dropHeartsPlayer = plugin.getConfig().getBoolean("dropHeartsPlayer", true);
                     if (!preventKillerGain && !droppedAtKiller && !dropHeartsPlayer) {
-                        boolean preventedByCooldown = handleHeartGainCooldown(event, player, killer, healthToLoose);
+                        boolean preventedByCooldown = handleHeartGainCooldown(event, player, killer, healthTolose);
                         boolean preventedByMax = false;
                         if (!preventedByCooldown) {
-                            preventedByMax = handleMaxHeartsLimit(event, player, killer, healthToLoose);
+                            preventedByMax = handleMaxHeartsLimit(event, player, killer, healthTolose);
                         }
                         if (!preventedByCooldown && !preventedByMax) {
-                            handleKillerHeartGainDirect(killer, healthToLoose);
+                            handleKillerHeartGainDirect(killer, healthTolose);
                         }
                     } else {
                         if (droppedAtKiller || dropHeartsPlayer) {
-                            dropHeartsNaturally(killer.getLocation(), (int) (healthToLoose / 2), CustomItemManager.createKillHeart());
+                            dropHeartsNaturally(killer.getLocation(), (int) (healthTolose / 2), CustomItemManager.createKillHeart());
                         }
                     }
                 } else if (!isDeathByPlayer) {
                     // Natural death eliminations also drop hearts if enabled
                     boolean dropHeartsNatural = plugin.getConfig().getBoolean("dropHeartsNatural", true);
                     if (dropHeartsNatural) {
-                        dropHeartsNaturally(player.getLocation(), (int) (healthToLoose / 2), CustomItemManager.createNaturalDeathHeart());
+                        dropHeartsNaturally(player.getLocation(), (int) (healthTolose / 2), CustomItemManager.createNaturalDeathHeart());
                     }
                 }
             }
@@ -410,7 +410,7 @@ public final class PlayerDeathListener implements Listener {
 
     private boolean restrictedHeartLossByGracePeriod(Player player) {
         GracePeriodManager gracePeriodManager = plugin.getGracePeriodManager();
-        return gracePeriodManager.isInGracePeriod(player) && !gracePeriodManager.getConfig().looseHearts();
+        return gracePeriodManager.isInGracePeriod(player) && !gracePeriodManager.getConfig().loseHearts();
     }
 
     private boolean restrictedHeartGainByGracePeriod(Player player) {
@@ -420,7 +420,7 @@ public final class PlayerDeathListener implements Listener {
 
     private boolean restrictedHeartLossByBypass(Player player) {
         BypassManager bypassManager = plugin.getBypassManager();
-        return bypassManager.hasBypass(player) && !bypassManager.getConfig().looseHearts();
+        return bypassManager.hasBypass(player) && !bypassManager.getConfig().loseHearts();
     }
 
     private boolean restrictedHeartGainByBypass(Player player) {
