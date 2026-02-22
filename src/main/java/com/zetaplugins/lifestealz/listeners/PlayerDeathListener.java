@@ -169,11 +169,11 @@ public final class PlayerDeathListener implements Listener {
         return false;
     }
 
-    private boolean handleMaxHeartsLimit(PlayerDeathEvent event, Player player, Player killer, double healthGain) {
+    private boolean handleMaxHeartsLimit(PlayerDeathEvent event, Player player, Player killer, double healthToGain) {
         final double maxHearts = getMaxHearts(killer, plugin.getConfig());
         PlayerData killerPlayerData = plugin.getStorage().load(killer.getUniqueId());
 
-        if (killerPlayerData.getMaxHealth() + healthGain > maxHearts) {
+        if (killerPlayerData.getMaxHealth() + healthToGain > maxHearts * 2) {
             ZPlayerMaxHeartsReachedEvent maxHeartsEvent =
                     new ZPlayerMaxHeartsReachedEvent(event, killer, maxHearts);
             maxHeartsEvent.setShouldDropHeartsInstead(plugin.getConfig().getBoolean("dropHeartsIfMax"));
@@ -181,7 +181,7 @@ public final class PlayerDeathListener implements Listener {
 
             if (!maxHeartsEvent.isCancelled()) {
                 if (maxHeartsEvent.isShouldDropHeartsInstead()) {
-                    dropHeartsNaturally(killer.getLocation(), (int) (healthGain / 2), CustomItemManager.createMaxHealthHeart());
+                    dropHeartsNaturally(killer.getLocation(), (int) (healthToGain / 2), CustomItemManager.createMaxHealthHeart());
                 } else {
                     killer.sendMessage(maxHeartsEvent.getMaxHeartsMessage());
                 }
@@ -192,9 +192,9 @@ public final class PlayerDeathListener implements Listener {
     }
 
     private void handlePvPDeath(PlayerDeathEvent event, Player player, Player killer, PlayerData playerData, double healthToLoose, boolean preventKillerGain, boolean droppedAtKiller) {
-        double healthGain = healthToLoose;
+        double healthToGain = healthToLoose;
 
-        ZPlayerPvPDeathEvent pvpEvent = new ZPlayerPvPDeathEvent(event, killer, healthToLoose, healthGain);
+        ZPlayerPvPDeathEvent pvpEvent = new ZPlayerPvPDeathEvent(event, killer, healthToLoose, healthToGain);
 
         boolean shouldDropFromPvP = plugin.getConfig().getBoolean("dropHeartsPlayer") && !droppedAtKiller;
         pvpEvent.setShouldDropHearts(shouldDropFromPvP);
@@ -205,17 +205,17 @@ public final class PlayerDeathListener implements Listener {
 
         if (!pvpEvent.isCancelled()) {
             // Victim loses hearts
-            if (pvpEvent.getHeartsToLose() > 0) {
-                playerData.setMaxHealth(playerData.getMaxHealth() - pvpEvent.getHeartsToLose());
+            if (pvpEvent.getHealthToLose() > 0) {
+                playerData.setMaxHealth(playerData.getMaxHealth() - pvpEvent.getHealthToLose());
                 plugin.getStorage().save(playerData);
                 LifeStealZ.setMaxHealth(player, playerData.getMaxHealth());
             }
 
             // Killer gain or drops
             if (pvpEvent.isShouldDropHearts()) {
-                dropHeartsNaturally(player.getLocation(), (int) (pvpEvent.getHeartsToLose() / 2), CustomItemManager.createKillHeart());
-            } else if (pvpEvent.isKillerShouldGainHearts() && pvpEvent.getHeartsKillerGains() > 0) {
-                handleKillerHeartGainDirect(killer, pvpEvent.getHeartsKillerGains());
+                dropHeartsNaturally(player.getLocation(), (int) (pvpEvent.getHealthToLose() / 2), CustomItemManager.createKillHeart());
+            } else if (pvpEvent.isKillerShouldGainHearts() && pvpEvent.getHealthKillerGains() > 0) {
+                handleKillerHeartGainDirect(killer, pvpEvent.getHealthKillerGains());
             }
 
             if (!pvpEvent.getDeathMessage().equals(event.getDeathMessage())) {
@@ -232,15 +232,15 @@ public final class PlayerDeathListener implements Listener {
 
         if (!naturalEvent.isCancelled()) {
             // Apply heart loss
-            if (naturalEvent.getHeartsToLose() > 0) {
-                playerData.setMaxHealth(playerData.getMaxHealth() - naturalEvent.getHeartsToLose());
+            if (naturalEvent.getHealthToLose() > 0) {
+                playerData.setMaxHealth(playerData.getMaxHealth() - naturalEvent.getHealthToLose());
                 plugin.getStorage().save(playerData);
                 LifeStealZ.setMaxHealth(player, playerData.getMaxHealth());
             }
 
             // Handle heart drops
             if (naturalEvent.isShouldDropHearts()) {
-                dropHeartsNaturally(player.getLocation(), (int) (naturalEvent.getHeartsToLose() / 2), CustomItemManager.createNaturalDeathHeart());
+                dropHeartsNaturally(player.getLocation(), (int) (naturalEvent.getHealthToLose() / 2), CustomItemManager.createNaturalDeathHeart());
             }
 
             // Update death message if changed
